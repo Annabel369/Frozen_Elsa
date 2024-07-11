@@ -1,9 +1,15 @@
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
+using CounterStrikeSharp.API.Core.Translations;
+using CounterStrikeSharp.API.Modules.Admin;
 using CounterStrikeSharp.API.Modules.Commands;
+using CounterStrikeSharp.API.Modules.Commands.Targeting;
 using CounterStrikeSharp.API.Modules.Timers;
+using CounterStrikeSharp.API.Modules.Entities.Constants;
+using CounterStrikeSharp.API.Modules.Memory;
 using CounterStrikeSharp.API.Modules.Utils;
+
 
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
@@ -48,8 +54,39 @@ public partial class Frozen_Elsa
         //player.GiveNamedItem("item_kevlar");
     }
 
+    [ConsoleCommand("css_he", "he")]// !he
+     public void OnCommandGiveHe(CCSPlayerController? player, CommandInfo commandInfo)
+    {
+        if (player == null) return;
+        if (!player.IsValid) return;
+
+
+        var callerName = player == null ? "Console" : player.PlayerName;
+        
+
+        //Server.ExecuteCommand($"css_freeze {callerName} 9");
+        //player?.PrintToChat($"Freeze {callerName} 9 secord");
+
+
+        //player?.ExecuteClientCommand($"play sounds/ui/counter_beep.vsnd");
+        
+        player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-ice.vsnd_c");
+
+        player?.GiveNamedItem("weapon_hegrenade");
+
+        player?.PrintToCenterHtml($"[{"<img src='http://26.67.120.79/skinplayersweb/img/657ca211c7f7d.jpg' height='50'>"}]</img><br />");
+
+
+
+
+
+        //player.GiveNamedItem("weapon_m4a1");
+        //player.GiveNamedItem("item_kevlar");
+    }
+
 
     [ConsoleCommand("css_a", "a")]// !dc
+    [RequiresPermissions("@css/root")]
     public void OnCommandAItems(CCSPlayerController? player, CommandInfo commandInfo)
     {
         if (player == null) return;
@@ -59,6 +96,17 @@ public partial class Frozen_Elsa
         player?.ExecuteClientCommand($"play sounds/marius_music/ala-se-amari-yah-aaa-baba-yah-abadon.vsnd");
 
 
+    }
+
+    [ConsoleCommand("css_spec")]
+    [RequiresPermissions("@css/root")]
+    [CommandHelper(minArgs: 1, usage: "<#userid or name>", whoCanExecute: CommandUsage.CLIENT_AND_SERVER)]
+    public void OnMariusCommand(CCSPlayerController? caller, CommandInfo command)
+    {
+            var callerName = caller == null ? "Console" : caller.PlayerName;
+            if (command== null) return;
+            Server.ExecuteCommand($"spec_player {callerName}");
+            
     }
 
     [ConsoleCommand("css_q", "q")]// !dc
@@ -74,11 +122,11 @@ public partial class Frozen_Elsa
 
     }
     [ConsoleCommand("css_u", "u")]
+    [RequiresPermissions("@css/root")]
     public void OnGlow(CCSPlayerController? controller, CommandInfo command)
     {
         // Create a glow effect for the player
-        AddTimer(0.1f, () =>
-        {
+       
             var prop = Utilities.CreateEntityByName<CCSPlayerPawn>("prop_dynamic");
             if (prop == null)
             {
@@ -102,7 +150,6 @@ public partial class Frozen_Elsa
 
                 // Set position and input acceptance
                 prop?.Teleport(controller?.PlayerPawn?.Value?.AbsOrigin, new QAngle(0, 0, 0), new Vector(0, 0, 0));
-                prop?.AcceptInput("FollowEntity", caller: prop, activator: controller?.PlayerPawn?.Value, value: "!activator");
                 prop!.DispatchSpawn();
 
                 // Configure glow effect
@@ -118,11 +165,8 @@ public partial class Frozen_Elsa
 
             }
 
-        }, TimerFlags.REPEAT);
-
-       
-
         isCatAnimationOn = !isCatAnimationOn;
+        return;
 
     }
 

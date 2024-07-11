@@ -1,39 +1,52 @@
-C:\Users\amauri\Desktop\Frozen_Elsa\bin\Debug\net8.0\lang\en.json
-C:\Users\amauri\Desktop\Frozen_Elsa\bin\Debug\net8.0\Frozen_Elsa.deps.json
-C:\Users\amauri\Desktop\Frozen_Elsa\bin\Debug\net8.0\Frozen_Elsa.dll
-C:\Users\amauri\Desktop\Frozen_Elsa\bin\Debug\net8.0\Frozen_Elsa.pdb
-C:\Users\amauri\Desktop\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.csproj.AssemblyReference.cache
-C:\Users\amauri\Desktop\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\amauri\Desktop\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.AssemblyInfoInputs.cache
-C:\Users\amauri\Desktop\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.AssemblyInfo.cs
-C:\Users\amauri\Desktop\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.csproj.CoreCompileInputs.cache
-C:\Users\amauri\Desktop\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.dll
-C:\Users\amauri\Desktop\Frozen_Elsa\obj\Debug\net8.0\refint\Frozen_Elsa.dll
-C:\Users\amauri\Desktop\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.pdb
-C:\Users\amauri\Desktop\Frozen_Elsa\obj\Debug\net8.0\ref\Frozen_Elsa.dll
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.csproj.AssemblyReference.cache
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.AssemblyInfoInputs.cache
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.AssemblyInfo.cs
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.csproj.CoreCompileInputs.cache
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.dll
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa\obj\Debug\net8.0\refint\Frozen_Elsa.dll
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.pdb
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa\bin\Debug\net8.0\lang\en.json
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa\bin\Debug\net8.0\Frozen_Elsa.deps.json
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa\bin\Debug\net8.0\Frozen_Elsa.dll
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa\bin\Debug\net8.0\Frozen_Elsa.pdb
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa\obj\Debug\net8.0\ref\Frozen_Elsa.dll
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa-main\bin\Debug\net8.0\lang\en.json
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa-main\bin\Debug\net8.0\Frozen_Elsa.deps.json
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa-main\bin\Debug\net8.0\Frozen_Elsa.dll
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa-main\bin\Debug\net8.0\Frozen_Elsa.pdb
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.csproj.AssemblyReference.cache
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.AssemblyInfoInputs.cache
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.AssemblyInfo.cs
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.csproj.CoreCompileInputs.cache
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.dll
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa-main\obj\Debug\net8.0\refint\Frozen_Elsa.dll
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.pdb
-C:\Users\amaur\OneDrive\Área de Trabalho\Frozen_Elsa-main\obj\Debug\net8.0\ref\Frozen_Elsa.dll
+C:/Users/amauri/Desktop/Frozen_Elsa/bin/Debug/net8.0/lang/en.json
+C:/Users/amauri/Desktop/Frozen_Elsa/bin/Debug/net8.0/Frozen_Elsa.deps.json
+C:/Users/amauri/Desktop/Frozen_Elsa/bin/Debug/net8.0/Frozen_Elsa.dll
+C:/Users/amauri/Desktop/Frozen_Elsa/bin/Debug/net8.0/Frozen_Elsa.pdb
+C:/Users/amauri/Desktop/Frozen_Elsa/obj/Debug/net8.0/Frozen_Elsa.csproj.AssemblyReference.cache
+C:/Users/amauri/Desktop/Frozen_Elsa/obj/Debug/net8.0/Frozen_Elsa.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/amauri/Desktop/Frozen_Elsa/obj/Debug/net8.0/Frozen_Elsa.AssemblyInfoInputs.cache
+C:/Users/amauri/Desktop/Frozen_Elsa/obj/Debug/net8.0/Frozen_Elsa.AssemblyInfo.cs
+C:/Users/amauri/Desktop/Frozen_Elsa/obj/Debug/net8.0/Frozen_Elsa.csproj.CoreCompileInputs.cache
+C:/Users/amauri/Desktop/Frozen_Elsa/obj/Debug/net8.0/Frozen_Elsa.dll
+C:/Users/amauri/Desktop/Frozen_Elsa/obj/Debug/net8.0/refint/Frozen_Elsa.dll
+C:/Users/amauri/Desktop/Frozen_Elsa/obj/Debug/net8.0/Frozen_Elsa.pdb
+C:/Users/amauri/Desktop/Frozen_Elsa/obj/Debug/net8.0/ref/Frozen_Elsa.dll
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa/obj/Debug/net8.0/Frozen_Elsa.csproj.AssemblyReference.cache
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa/obj/Debug/net8.0/Frozen_Elsa.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa/obj/Debug/net8.0/Frozen_Elsa.AssemblyInfoInputs.cache
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa/obj/Debug/net8.0/Frozen_Elsa.AssemblyInfo.cs
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa/obj/Debug/net8.0/Frozen_Elsa.csproj.CoreCompileInputs.cache
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa/obj/Debug/net8.0/Frozen_Elsa.dll
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa/obj/Debug/net8.0/refint/Frozen_Elsa.dll
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa/obj/Debug/net8.0/Frozen_Elsa.pdb
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa/bin/Debug/net8.0/lang/en.json
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa/bin/Debug/net8.0/Frozen_Elsa.deps.json
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa/bin/Debug/net8.0/Frozen_Elsa.dll
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa/bin/Debug/net8.0/Frozen_Elsa.pdb
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa/obj/Debug/net8.0/ref/Frozen_Elsa.dll
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa-main/bin/Debug/net8.0/lang/en.json
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa-main/bin/Debug/net8.0/Frozen_Elsa.deps.json
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa-main/bin/Debug/net8.0/Frozen_Elsa.dll
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa-main/bin/Debug/net8.0/Frozen_Elsa.pdb
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa-main/obj/Debug/net8.0/Frozen_Elsa.csproj.AssemblyReference.cache
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa-main/obj/Debug/net8.0/Frozen_Elsa.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa-main/obj/Debug/net8.0/Frozen_Elsa.AssemblyInfoInputs.cache
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa-main/obj/Debug/net8.0/Frozen_Elsa.AssemblyInfo.cs
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa-main/obj/Debug/net8.0/Frozen_Elsa.csproj.CoreCompileInputs.cache
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa-main/obj/Debug/net8.0/Frozen_Elsa.dll
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa-main/obj/Debug/net8.0/refint/Frozen_Elsa.dll
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa-main/obj/Debug/net8.0/Frozen_Elsa.pdb
+C:/Users/amaur/OneDrive/Área de Trabalho/Frozen_Elsa-main/obj/Debug/net8.0/ref/Frozen_Elsa.dll
+/home/amauri/Documentos/Dotnet 8.0 Projetos/Frozen_Elsa-main/bin/Debug/net8.0/lang/en.json
+/home/amauri/Documentos/Dotnet 8.0 Projetos/Frozen_Elsa-main/bin/Debug/net8.0/Frozen_Elsa.deps.json
+/home/amauri/Documentos/Dotnet 8.0 Projetos/Frozen_Elsa-main/bin/Debug/net8.0/Frozen_Elsa.dll
+/home/amauri/Documentos/Dotnet 8.0 Projetos/Frozen_Elsa-main/bin/Debug/net8.0/Frozen_Elsa.pdb
+/home/amauri/Documentos/Dotnet 8.0 Projetos/Frozen_Elsa-main/obj/Debug/net8.0/Frozen_Elsa.csproj.AssemblyReference.cache
+/home/amauri/Documentos/Dotnet 8.0 Projetos/Frozen_Elsa-main/obj/Debug/net8.0/Frozen_Elsa.GeneratedMSBuildEditorConfig.editorconfig
+/home/amauri/Documentos/Dotnet 8.0 Projetos/Frozen_Elsa-main/obj/Debug/net8.0/Frozen_Elsa.AssemblyInfoInputs.cache
+/home/amauri/Documentos/Dotnet 8.0 Projetos/Frozen_Elsa-main/obj/Debug/net8.0/Frozen_Elsa.AssemblyInfo.cs
+/home/amauri/Documentos/Dotnet 8.0 Projetos/Frozen_Elsa-main/obj/Debug/net8.0/Frozen_Elsa.csproj.CoreCompileInputs.cache
+/home/amauri/Documentos/Dotnet 8.0 Projetos/Frozen_Elsa-main/obj/Debug/net8.0/Frozen_Elsa.dll
+/home/amauri/Documentos/Dotnet 8.0 Projetos/Frozen_Elsa-main/obj/Debug/net8.0/refint/Frozen_Elsa.dll
+/home/amauri/Documentos/Dotnet 8.0 Projetos/Frozen_Elsa-main/obj/Debug/net8.0/Frozen_Elsa.pdb
+/home/amauri/Documentos/Dotnet 8.0 Projetos/Frozen_Elsa-main/obj/Debug/net8.0/ref/Frozen_Elsa.dll
