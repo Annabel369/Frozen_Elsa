@@ -44,44 +44,33 @@ public partial class Frozen_Elsa
 
         player?.GiveNamedItem("weapon_Decoy");
 
-        player?.PrintToCenterHtml($"[{"<img src='http://26.67.120.79/skinplayersweb/img/657ca211c7f7d.jpg' height='50'>"}]</img><br />");
-
-
-
-
+       player?.PrintToCenterHtml($"[{"<img src='https://raw.githubusercontent.com/oqyh/cs2-MVP-Sounds-GoldKingZ/main/Resources/skull1.gif'>"}]</img>",10);
 
         //player.GiveNamedItem("weapon_m4a1");
         //player.GiveNamedItem("item_kevlar");
     }
 
     [ConsoleCommand("css_he", "he")]// !he
+    [RequiresPermissions("@css/root")]
      public void OnCommandGiveHe(CCSPlayerController? player, CommandInfo commandInfo)
     {
         if (player == null) return;
         if (!player.IsValid) return;
+        //player?.PlayerPawn.Value?.LifeState == (byte)LifeState_t.LIFE_ALIVE;
+
 
 
         var callerName = player == null ? "Console" : player.PlayerName;
         
-
-        //Server.ExecuteCommand($"css_freeze {callerName} 9");
-        //player?.PrintToChat($"Freeze {callerName} 9 secord");
-
-
-        //player?.ExecuteClientCommand($"play sounds/ui/counter_beep.vsnd");
         
         player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-ice.vsnd_c");
 
         player?.GiveNamedItem("weapon_hegrenade");
+        Server.ExecuteCommand($"ammo_grenade_limit_total 5");
+        Server.ExecuteCommand($"sv_grenade_trajectory_prac_pipreview 1");
 
-        player?.PrintToCenterHtml($"[{"<img src='http://26.67.120.79/skinplayersweb/img/657ca211c7f7d.jpg' height='50'>"}]</img><br />");
-
-
-
-
-
-        //player.GiveNamedItem("weapon_m4a1");
-        //player.GiveNamedItem("item_kevlar");
+        player?.PrintToCenterHtml($"[{"<img src='https://raw.githubusercontent.com/oqyh/cs2-MVP-Sounds-GoldKingZ/main/Resources/skull1.gif'>"}]</img>",10);
+        Thread.Sleep(100);
     }
 
 

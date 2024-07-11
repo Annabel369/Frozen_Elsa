@@ -8,7 +8,6 @@ https://www.youtube.com/watch?v=MWYbYk941AM
       !q Server.ExecuteCommand("mp_warmup_end");
       !u Create a glow effect for the player
       !dc decoy drop
-      !he decoy hegranete  
       !a test music
  
 
