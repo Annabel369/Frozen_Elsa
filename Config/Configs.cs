@@ -19,6 +19,13 @@ namespace Frozen_music.Config
         private static string? _jsonFilePath;
         private static ConfigData? _configData;
 
+
+
+    //[JsonPropertyName("gif_display_duration")]
+    //public float GifDisplayDuration { get; set; } = 4.0f;
+
+        
+
         private static readonly JsonSerializerOptions SerializationOptions = new()
         {
             Converters =
@@ -44,6 +51,8 @@ namespace Frozen_music.Config
             
             return _configData;
         }
+
+        
 
         public static ConfigData Load(string modulePath)
         {
@@ -103,6 +112,7 @@ namespace Frozen_music.Config
 
             public string empty2 { get; set; }
 
+
             public string Information_For_You_Dont_Delete_it { get; set; }
 
             [JsonPropertyName("FreezeTime")]
@@ -111,13 +121,13 @@ namespace Frozen_music.Config
             public ConfigData()
             {
                 KS_EnableQuakeSounds = true;
-                empty = "-----------------------------------------------------------------------------------";
-                explode = "sounds/frozen_music/explode.vsnd_c";
-                freeze_hit = "sounds/frozen_music/freeze_hit.vsnd_c";
-                frozengo = "sounds/frozen_music/frozen-go.vsnd_c";
-                frozenice = "sounds/frozen_music/frozen-ice.vsnd_c";
-                punishment1 = "sounds/frozen_music/punishment1.vsnd_c";
-                unfreeze = "sounds/frozen_music/unfreeze.vsnd_c";
+                empty = "-----------------------------------------------------------------------------------"; 
+                explode = "sounds/frozen_music2/explode.vsnd_c";
+                freeze_hit = "sounds/frozen_music2/freeze_hit.vsnd_c";
+                frozengo = "sounds/frozen_music2/frozen-go.vsnd_c";
+                frozenice = "sounds/frozen_music2/frozen-ice.vsnd_c";
+                punishment1 = "sounds/frozen_music2/punishment1.vsnd_c";
+                unfreeze = "sounds/frozen_music2/unfreeze.vsnd_c";
                 amarillo = "sounds/marius_music/amarillo.vsnd_c";
                 empty2 = "-----------------------------------------------------------------------------------";
                 Information_For_You_Dont_Delete_it = " Vist  [https://github.com/astral3693/Frozen_Elsa] To Understand All Above";

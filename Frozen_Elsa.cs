@@ -26,7 +26,7 @@ namespace Frozen_Elsa;
 public class Config : BasePluginConfig
 {
 
-    public bool SiteImage { get; set; } = true;
+    
     [JsonPropertyName("show-player-counter")]
     public bool PlayerCounter { get; set; } = true;
     [JsonPropertyName("ConfigVersion")]
@@ -47,7 +47,13 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
     public byte LIFE_ALIVE { get; private set; }
     private static readonly Vector VectorZero = new Vector(0, 0, 0);
     private static readonly QAngle RotationZero = new QAngle(0, 0, 0);
+    private bool shouldShowImage = false;
     public bool bombsiteAnnouncer;
+
+    public override void Load(bool hotReload)
+    {
+        RegisterListener<Listeners.OnTick>(OnTick);
+    }
 
     public void OnConfigParsed(Config config)
     {
@@ -139,14 +145,28 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
         return HookResult.Continue;
     }
 
+
+
+    public void OnTick()
+    {    
+        string gifUrl = Globals.SiteImage;
+
+        if (shouldShowImage)
+        {
+            foreach (CCSPlayerController player in Utilities.GetPlayers())
+            {
+                if (player != null && player.IsValid)
+                {
+                    player.PrintToCenterHtml($"<img src=\"{gifUrl}\">",10);
+                }   
+            }
+        }
+    }
+
     public (int, CBeam) DrawLaserBetween(Vector startPos, Vector endPos, Color color, float life, float width)
     {
-        if (startPos == null || endPos == null)
-        {
-            return (-1, null);
-        }
 
-        CBeam beam = Utilities.CreateEntityByName<CBeam>("beam");
+        CBeam? beam = Utilities.CreateEntityByName<CBeam>("beam");
 
         if (beam == null)
         {
@@ -173,12 +193,12 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
     public HookResult BulletImpact(EventBulletImpact @event, GameEventInfo info)
     {
         CCSPlayerController player = @event.Userid;
-
-        Vector PlayerPosition = player.Pawn.Value.AbsOrigin;
+        
+        Vector PlayerPosition = player?.Pawn.Value.AbsOrigin;
         Vector BulletOrigin = new Vector(PlayerPosition.X, PlayerPosition.Y, PlayerPosition.Z + 57); // Adjust Z offset if needed
         Vector bulletDestination = new Vector(@event.X, @event.Y, @event.Z);
 
-        if (player.TeamNum == 3)
+        if (player?.TeamNum == 3)
         {
             DrawLaserBetween(BulletOrigin, bulletDestination, Color.Blue, 0.2f, 1.0f); // Adjust width and color as desired
         }
@@ -200,7 +220,7 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
         for (int i = 0; i < endPos.Length; i++)
         {
 
-            CBeam beam = Utilities.CreateEntityByName<CBeam>("beam");
+            CBeam? beam = Utilities.CreateEntityByName<CBeam>("beam");
 
             //var pawn = player?.PlayerPawn.Get();
             //var activeWeapon = pawn?.WeaponServices?.ActiveWeapon.Get();

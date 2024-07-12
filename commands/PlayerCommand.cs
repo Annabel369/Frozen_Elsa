@@ -43,11 +43,13 @@ public partial class Frozen_Elsa
         player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-ice.vsnd_c");
 
         player?.GiveNamedItem("weapon_Decoy");
-
-       player?.PrintToCenterHtml($"[{"<img src='https://raw.githubusercontent.com/oqyh/cs2-MVP-Sounds-GoldKingZ/main/Resources/skull1.gif'>"}]</img>",10);
-
-        //player.GiveNamedItem("weapon_m4a1");
-        //player.GiveNamedItem("item_kevlar");
+        Globals.SiteImage = "https://raw.githubusercontent.com/oqyh/cs2-MVP-Sounds-GoldKingZ/def5df4f333fc95da1e6de92a5c137fa5006ebad/Resources/9mm.gif";
+        RegisterListener<Listeners.OnTick>(OnTick);
+        shouldShowImage = true;
+        AddTimer(7, () =>
+        {
+            shouldShowImage = false;
+        });
     }
 
     [ConsoleCommand("css_he", "he")]// !he
@@ -57,20 +59,89 @@ public partial class Frozen_Elsa
         if (player == null) return;
         if (!player.IsValid) return;
         //player?.PlayerPawn.Value?.LifeState == (byte)LifeState_t.LIFE_ALIVE;
-
-
-
         var callerName = player == null ? "Console" : player.PlayerName;
         
-        
         player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-ice.vsnd_c");
-
         player?.GiveNamedItem("weapon_hegrenade");
         Server.ExecuteCommand($"ammo_grenade_limit_total 5");
         Server.ExecuteCommand($"sv_grenade_trajectory_prac_pipreview 1");
 
-        player?.PrintToCenterHtml($"[{"<img src='https://raw.githubusercontent.com/oqyh/cs2-MVP-Sounds-GoldKingZ/main/Resources/skull1.gif'>"}]</img>",10);
-        Thread.Sleep(100);
+        Globals.SiteImage = "https://raw.githubusercontent.com/oqyh/cs2-MVP-Sounds-GoldKingZ/main/Resources/skull1.gif";
+        RegisterListener<Listeners.OnTick>(OnTick);
+        shouldShowImage = true;
+        AddTimer(10, () =>
+        {
+            shouldShowImage = false;
+        });
+    }
+
+    [ConsoleCommand("css_smoke", "smoke")]// !smoke
+    [RequiresPermissions("@css/root")]
+     public void OnCommandGiveSmoke(CCSPlayerController? player, CommandInfo commandInfo)
+    {
+        if (player == null) return;
+        if (!player.IsValid) return;
+
+        var callerName = player == null ? "Console" : player.PlayerName;
+        
+        player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-ice.vsnd_c");
+        player?.GiveNamedItem("weapon_smokegrenade");
+        Server.ExecuteCommand($"ammo_grenade_limit_total 5");
+        Server.ExecuteCommand($"sv_grenade_trajectory_prac_pipreview 1");
+
+        Globals.SiteImage = "https://gifman.net/wp-content/uploads/2019/06/coninga-batendo-palmas.gif";
+        RegisterListener<Listeners.OnTick>(OnTick);
+        shouldShowImage = true;
+        AddTimer(7, () =>
+        {
+            shouldShowImage = false;
+        });
+    }
+
+    [ConsoleCommand("css_molotov", "molotov")]// !molotov
+    [RequiresPermissions("@css/root")]
+     public void OnCommandGiveMolotov(CCSPlayerController? player, CommandInfo commandInfo)
+    {
+        if (player == null) return;
+        if (!player.IsValid) return;
+
+        var callerName = player == null ? "Console" : player.PlayerName;
+        
+        player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-ice.vsnd_c");
+        player?.GiveNamedItem("weapon_smokegrenade");
+        Server.ExecuteCommand($"ammo_grenade_limit_total 5");
+        Server.ExecuteCommand($"sv_grenade_trajectory_prac_pipreview 1");
+
+        Globals.SiteImage = "https://gifman.net/wp-content/uploads/2019/07/bob-esponja-32.gif";
+        RegisterListener<Listeners.OnTick>(OnTick);
+        shouldShowImage = true;
+        AddTimer(7, () =>
+        {
+            shouldShowImage = false;
+        });
+    }
+
+    [ConsoleCommand("css_bang", "bang")]// !bang
+    [RequiresPermissions("@css/root")]
+     public void OnCommandGiveBang(CCSPlayerController? player, CommandInfo commandInfo)
+    {
+        if (player == null) return;
+        if (!player.IsValid) return;
+
+        var callerName = player == null ? "Console" : player.PlayerName;
+        
+        player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-ice.vsnd_c");
+        player?.GiveNamedItem("weapon_flashbang");
+        Server.ExecuteCommand($"ammo_grenade_limit_total 5");
+        Server.ExecuteCommand($"sv_grenade_trajectory_prac_pipreview 1");
+
+        Globals.SiteImage = "https://gifman.net/wp-content/uploads/2019/07/lula-molusco-02.gif";
+        RegisterListener<Listeners.OnTick>(OnTick);
+        shouldShowImage = true;
+        AddTimer(7, () =>
+        {
+            shouldShowImage = false;
+        });
     }
 
 
