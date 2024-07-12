@@ -9,8 +9,6 @@ https://www.youtube.com/watch?v=MWYbYk941AM
       !u Create a glow effect for the player
       !dc decoy drop
       !a test music
-      !smoke
-      !molotov
  
 
 

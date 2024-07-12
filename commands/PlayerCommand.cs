@@ -22,8 +22,6 @@ namespace Frozen_Elsa;
 public partial class Frozen_Elsa
 {
 
-    bool isCatAnimationOn = false;
-
     [ConsoleCommand("css_dc", "dc")]// !dc
     public void OnCommandGiveItems(CCSPlayerController? player, CommandInfo commandInfo)
     {
@@ -52,7 +50,7 @@ public partial class Frozen_Elsa
         });
     }
 
-    [ConsoleCommand("css_he", "he")]// !he
+    [ConsoleCommand("css_h", "h")]// !h
     [RequiresPermissions("@css/root")]
      public void OnCommandGiveHe(CCSPlayerController? player, CommandInfo commandInfo)
     {
@@ -75,7 +73,7 @@ public partial class Frozen_Elsa
         });
     }
 
-    [ConsoleCommand("css_smoke", "smoke")]// !smoke
+    [ConsoleCommand("css_s", "s")]// !s
     [RequiresPermissions("@css/root")]
      public void OnCommandGiveSmoke(CCSPlayerController? player, CommandInfo commandInfo)
     {
@@ -98,7 +96,7 @@ public partial class Frozen_Elsa
         });
     }
 
-    [ConsoleCommand("css_molotov", "molotov")]// !molotov
+    [ConsoleCommand("css_m", "m")]// !m
     [RequiresPermissions("@css/root")]
      public void OnCommandGiveMolotov(CCSPlayerController? player, CommandInfo commandInfo)
     {
@@ -108,7 +106,7 @@ public partial class Frozen_Elsa
         var callerName = player == null ? "Console" : player.PlayerName;
         
         player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-ice.vsnd_c");
-        player?.GiveNamedItem("weapon_smokegrenade");
+        player?.GiveNamedItem("weapon_molotov");
         Server.ExecuteCommand($"ammo_grenade_limit_total 5");
         Server.ExecuteCommand($"sv_grenade_trajectory_prac_pipreview 1");
 
@@ -121,7 +119,7 @@ public partial class Frozen_Elsa
         });
     }
 
-    [ConsoleCommand("css_bang", "bang")]// !bang
+    [ConsoleCommand("css_f", "f")]// !f
     [RequiresPermissions("@css/root")]
      public void OnCommandGiveBang(CCSPlayerController? player, CommandInfo commandInfo)
     {
@@ -158,6 +156,7 @@ public partial class Frozen_Elsa
 
     }
 
+
     [ConsoleCommand("css_spec")]
     [RequiresPermissions("@css/root")]
     [CommandHelper(minArgs: 1, usage: "<#userid or name>", whoCanExecute: CommandUsage.CLIENT_AND_SERVER)]
@@ -170,6 +169,7 @@ public partial class Frozen_Elsa
     }
 
     [ConsoleCommand("css_q", "q")]// !dc
+    [RequiresPermissions("@css/root")]
     public void Onwarmup_end(CCSPlayerController? player, CommandInfo commandInfo)
     {
         if (player == null) return;
@@ -181,54 +181,9 @@ public partial class Frozen_Elsa
 
 
     }
-    [ConsoleCommand("css_u", "u")]
-    [RequiresPermissions("@css/root")]
-    public void OnGlow(CCSPlayerController? controller, CommandInfo command)
-    {
-        // Create a glow effect for the player
+
+    // Create a glow effect for the player
        
-            var prop = Utilities.CreateEntityByName<CCSPlayerPawn>("prop_dynamic");
-            if (prop == null)
-            {
-                return;
-            }
-           
-            if (isCatAnimationOn)
-            {
-                // Stop the cat animation
-                // ... (Implement animation stopping logic) ...
-
-                // Remove the prop itself
-                prop.Remove();
-                prop.AcceptInput("FollowEntity", caller: prop, activator: controller?.PlayerPawn?.Value, value: "!activator");
-            }
-            else
-            {
-                // Start the cat animation
-                // ... (Implement animation starting logic) ...
-                prop?.SetModel("characters/models/nozb1/skeletons_player_model/skeleton_player_model_1/skeleton_nozb1_pm.vmdl");
-
-                // Set position and input acceptance
-                prop?.Teleport(controller?.PlayerPawn?.Value?.AbsOrigin, new QAngle(0, 0, 0), new Vector(0, 0, 0));
-                prop!.DispatchSpawn();
-
-                // Configure glow effect
-                prop.Render = Color.White;
-                prop.Render = Color.FromArgb(1, 255, 255, 255);
-                prop.Glow.GlowColorOverride = Color.Red;
-                prop.Spawnflags = 256U;
-                prop.RenderMode = RenderMode_t.kRenderGlow;
-                prop.Glow.GlowRange = 5000;
-                prop.Glow.GlowTeam = -1;
-                prop.Glow.GlowType = 3;
-                prop.Glow.GlowRangeMin = 3;
-
-            }
-
-        isCatAnimationOn = !isCatAnimationOn;
-        return;
-
-    }
 
 
 }

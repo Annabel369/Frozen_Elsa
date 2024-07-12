@@ -106,41 +106,16 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
         //CCSPlayerController player = @event.Userid;
 
         
-        if (Config is not null)
+       if (shouldShowImage)
         {
-            // sphere ent
-            foreach (var player in Utilities.FindAllEntitiesByDesignerName<CCSPlayerController>("cs_player_controller"))
+            foreach (CCSPlayerController player in Utilities.GetPlayers())
             {
-
-                if (player != null && player.IsValid)//&& !player.IsBot
+                if (player != null && player.IsValid)
                 {
-                    if (player.Team == CsTeam.Terrorist)
-                    {
-                        if (player?.PlayerPawn != null && player?.PlayerPawn.Value != null)
-                        {
-                           
-                            var callerName = player == null ? "Console" : player.PlayerName;
-                            player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-go.vsnd_c");
-
-                            SphereEntity sphereEntity = new SphereEntity(new Vector(@event.X, @event.Y, @event.Z), 200);
-        
-                            DrawLaserBetween(sphereEntity.circleInnerPoints, sphereEntity.circleOutterPoints, 5);
-                            //Server.ExecuteCommand($"css_freeze {callerName} 5");
-                            //player?.PrintToChat($"Freeze {callerName} 5 secord");
-                            //player.PlayerPawn.Value.Render = Color.FromArgb(0, 0, 255);//Azul
-                            // The character emits light, and its effect is not satisfactory, but it can indeed achieve character illumination.Here, we need to obtain the player's model path and SetModel, but I have not found a way to do so
-                           
-
-
-                            
-                        }
-                    }
-                }
+                    player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-go.vsnd_c");
+                }   
             }
-
-        }
-
-
+        }   
 
         return HookResult.Continue;
     }
@@ -162,56 +137,6 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
             }
         }
     }
-
-    public (int, CBeam) DrawLaserBetween(Vector startPos, Vector endPos, Color color, float life, float width)
-    {
-
-        CBeam? beam = Utilities.CreateEntityByName<CBeam>("beam");
-
-        if (beam == null)
-        {
-            return (-1, null);
-        }
-
-        beam.Render = color;
-
-        // Set the desired width for a thinner tracer
-        beam.Width = width / 2.0f; // Adjust this value to control thickness
-
-        beam.Teleport(startPos, RotationZero, VectorZero);
-        beam.EndPos.X = endPos.X;
-        beam.EndPos.Y = endPos.Y;
-        beam.EndPos.Z = endPos.Z;
-        beam.DispatchSpawn();
-
-        AddTimer(life, () => { beam.Remove(); }); // Destroy beam after specific time
-
-        return ((int)beam.Index, beam);
-    }
-
-    [GameEventHandler(HookMode.Pre)]
-    public HookResult BulletImpact(EventBulletImpact @event, GameEventInfo info)
-    {
-        CCSPlayerController player = @event.Userid;
-        
-        Vector PlayerPosition = player?.Pawn.Value.AbsOrigin;
-        Vector BulletOrigin = new Vector(PlayerPosition.X, PlayerPosition.Y, PlayerPosition.Z + 57); // Adjust Z offset if needed
-        Vector bulletDestination = new Vector(@event.X, @event.Y, @event.Z);
-
-        if (player?.TeamNum == 3)
-        {
-            DrawLaserBetween(BulletOrigin, bulletDestination, Color.Blue, 0.2f, 1.0f); // Adjust width and color as desired
-        }
-        else if (player.TeamNum == 2)
-        {
-            DrawLaserBetween(BulletOrigin, bulletDestination, Color.Red, 0.2f, 1.0f); // Adjust width and color as desired
-        }
-
-        return HookResult.Continue;
-    }
-
-
-
 
 
     private void DrawLaserBetween(Vector[] startPos, Vector[] endPos, float duration)
