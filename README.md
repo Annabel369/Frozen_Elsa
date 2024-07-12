@@ -3,12 +3,16 @@
 https://www.youtube.com/watch?v=MWYbYk941AM
 - **Simple playersmoke**
 
-- **Commands in chat**
+- **Commands in Admin**
 - 
       !q Server.ExecuteCommand("mp_warmup_end");
-      !u Create a glow effect for the player
       !dc decoy drop
+        !h buy Granete
+        !f buy Fashbang
+        !m buy Molotove
+        !s buy Smoke
       !a test music
+
  
 
 
