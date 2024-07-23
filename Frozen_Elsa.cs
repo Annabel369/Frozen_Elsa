@@ -2,23 +2,9 @@ using System.Text.Json.Serialization;
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
-using CounterStrikeSharp.API.Modules.Entities;
 using CounterStrikeSharp.API.Modules.Utils;
-using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Logging;
-using static CounterStrikeSharp.API.Core.Listeners;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
 using System.Drawing;
-using System.Reflection.Metadata;
 
-using CounterStrikeSharp.API.Modules.Timers;
-using CounterStrikeSharp.API.Modules.Memory;
-using Frozen_music.Config;
-using CounterStrikeSharp.API.Modules.Commands.Targeting;
-using CounterStrikeSharp.API.Modules.Commands;
 
 
 
@@ -57,6 +43,7 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
 
     public void OnConfigParsed(Config config)
     {
+
 
         Config = config;
     }
@@ -139,44 +126,58 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
     }
 
 
-    private void DrawLaserBetween(Vector[] startPos, Vector[] endPos, float duration)
+    public (int, CBeam?) DrawLaserBetween(Vector startPos, Vector endPos, Color color, float life, float width)
     {
-
-        for (int i = 0; i < endPos.Length; i++)
+        if (startPos == null || endPos == null)
         {
-
-            CBeam? beam = Utilities.CreateEntityByName<CBeam>("beam");
-
-            //var pawn = player?.PlayerPawn.Get();
-            //var activeWeapon = pawn?.WeaponServices?.ActiveWeapon.Get();
-
-
-            if (beam == null)
-            {
-                return;
-            }
-            
-                beam.Render = Color.Blue;
-                beam.Width = 2.0f;
-
-                beam.Teleport(startPos[i], new QAngle(0), new Vector(0, 0, 0));
-                beam.EndPos.X = endPos[i].X;
-                beam.EndPos.Y = endPos[i].Y;
-                beam.EndPos.Z = endPos[i].Z;
-
-
-
-            beam.DispatchSpawn();
-            AddTimer(duration, () => { beam.Remove(); });
-
+            return (-1, null);
         }
 
+        CBeam? beam = Utilities.CreateEntityByName<CBeam>("beam");
 
+        if (beam == null)
+        {
+            return (-1, null);
+        }
+
+        beam.Render = color;
+        beam.Width = width / 2.0f;
+
+        beam.Teleport(startPos, RotationZero, VectorZero);
+        beam.EndPos.X = endPos.X;
+        beam.EndPos.Y = endPos.Y;
+        beam.EndPos.Z = endPos.Z;
+        beam.DispatchSpawn();
+
+        AddTimer(life, () => { beam.Remove(); });
+
+        return ((int)beam.Index, beam);
+    }
+
+    [GameEventHandler(HookMode.Pre)]
+    public HookResult BulletImpact(EventBulletImpact @event, GameEventInfo info)
+    {
+        CCSPlayerController? player = @event.Userid;
+
+        Vector? PlayerPosition = player?.Pawn?.Value?.AbsOrigin;
+        Vector? BulletOrigin = new Vector(PlayerPosition?.X, PlayerPosition?.Y, PlayerPosition?.Z + 57);
+        Vector? bulletDestination = new Vector(@event.X, @event.Y, @event.Z);
+
+        if (player?.TeamNum == 3)
+        {
+            DrawLaserBetween(BulletOrigin, bulletDestination, Color.Blue, 0.2f, 1.0f);
+        }
+        else if (player?.TeamNum == 2)
+        {
+            DrawLaserBetween(BulletOrigin, bulletDestination, Color.Red, 0.2f, 1.0f);
+        }
+
+        return HookResult.Continue;
     }
 
 
 
-   
+
 
 
 
