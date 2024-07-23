@@ -24,7 +24,7 @@ https://www.youtube.com/watch?v=MWYbYk941AM
       
       // Extra addon settings, this is only executed once on plugin load
       
-      mm_extra_addons 				"3230015783,3163629484,3244596709,3241525034,3168265293"
+      mm_extra_addons 				"3241525034,3294889768"
 
 [cs2_noscopenotifier](https://github.com/astral3693/cs2_noscopenotifier "cs2_noscopenotifier")
 
