@@ -19,13 +19,14 @@ Edit file game\csgo\addons\counterstrikesharp\configs\admin_groups.exemple.json 
 
 Edit file game\csgo\addons\counterstrikesharp\configs\admin_overrides.example.json for admin_overrides.json
 
-  Command console Vip (@css/custom-permission):
+
+Command console Vip (@css/custom-permission):
   
-  css_addadmin 76561198906880449 Katara @css/custom-permission 40 40000
+        css_addadmin 76561198906880449 Katara @css/custom-permission 40 40000
 
-  Command console Vip (@css/custom-permission):
+Command console Admin Master (@css/root):
 
-  css_addadmin 76561199737411180 Astral2 @css/root 99 99999
+        css_addadmin 76561199737411180 Astral2 @css/root 99 99999
 
 
 
