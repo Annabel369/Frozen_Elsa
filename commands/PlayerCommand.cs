@@ -13,6 +13,7 @@ public partial class Frozen_Elsa
 {
 
     [ConsoleCommand("css_dc", "dc")]// !dc
+    [RequiresPermissions("@css/custom-permission")]
     public void OnCommandGiveItems(CCSPlayerController? player, CommandInfo commandInfo)
     {
         if (player == null) return;
@@ -64,8 +65,8 @@ public partial class Frozen_Elsa
     }
 
     [ConsoleCommand("css_s", "s")]// !s
-    [RequiresPermissions("@css/root")]
-     public void OnCommandGiveSmoke(CCSPlayerController? player, CommandInfo commandInfo)
+    [RequiresPermissions("@css/custom-permission")]
+    public void OnCommandGiveSmoke(CCSPlayerController? player, CommandInfo commandInfo)
     {
         if (player == null) return;
         if (!player.IsValid) return;
@@ -133,6 +134,7 @@ public partial class Frozen_Elsa
     }
 
     [ConsoleCommand("css_gira", "gira")]// !gira
+    [RequiresPermissions("@css/custom-permission")]
     public void OnCommandmusis1(CCSPlayerController? player, CommandInfo commandInfo)
     {
         if (player == null) return;
@@ -152,6 +154,7 @@ public partial class Frozen_Elsa
     }
 
     [ConsoleCommand("css_ela", "ela")]// !ela
+    [RequiresPermissions("@css/custom-permission")]
     public void OnCommandmusis2(CCSPlayerController? player, CommandInfo commandInfo)
     {
         if (player == null) return;
@@ -170,6 +173,7 @@ public partial class Frozen_Elsa
         });
     }
     [ConsoleCommand("css_erick", "erick")]// !erick
+    [RequiresPermissions("@css/custom-permission")]
     public void OnCommandmusis3(CCSPlayerController? player, CommandInfo commandInfo)
     {
         if (player == null) return;
@@ -189,6 +193,7 @@ public partial class Frozen_Elsa
     }
 
     [ConsoleCommand("css_lula", "lula")]// !lula
+    [RequiresPermissions("@css/custom-permission")]
     public void OnCommandmusis4(CCSPlayerController? player, CommandInfo commandInfo)
     {
         if (player == null) return;
@@ -196,9 +201,9 @@ public partial class Frozen_Elsa
 
         var callerName = player == null ? "Console" : player.PlayerName;
 
-        player?.ExecuteClientCommand($"play sounds/hesmokerds_sounds/Cartman.vsnd");
+        player?.ExecuteClientCommand($"play sounds/hesmokerds_sounds/cthulhu.vsnd_c");
 
-        Globals.SiteImage = "https://media.discordapp.net/attachments/1259373008758247465/1265101872533078026/image.png?ex=66a0496e&is=669ef7ee&hm=ad355d9f0b4c21b32b70c1d77a46015ae5b7ed30cb6de6f89441cc2d0b8ee3e5&=&format=webp&quality=lossless";
+        Globals.SiteImage = "https://www.tribute.ca/news/wp-content/uploads/2016/11/The-Little-Mermaid.jpg";
         RegisterListener<Listeners.OnTick>(OnTick);
         shouldShowImage = true;
         AddTimer(7, () =>
@@ -207,8 +212,8 @@ public partial class Frozen_Elsa
         });
     }
 
-    [ConsoleCommand("css_a", "a")]// !dc
-    [RequiresPermissions("@css/root")]
+    [ConsoleCommand("css_vip", "vip")]// !dc
+    [RequiresPermissions("@css/custom-permission")]
     public void OnCommandAItems(CCSPlayerController? player, CommandInfo commandInfo)
     {
         if (player == null) return;
@@ -233,7 +238,7 @@ public partial class Frozen_Elsa
     }
 
     [ConsoleCommand("css_q", "q")]// !dc
-    [RequiresPermissions("@css/root")]
+    [RequiresPermissions("@css/custom-permission")]
     public void Onwarmup_end(CCSPlayerController? player, CommandInfo commandInfo)
     {
         if (player == null) return;

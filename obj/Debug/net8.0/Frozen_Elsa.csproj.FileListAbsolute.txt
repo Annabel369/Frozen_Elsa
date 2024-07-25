@@ -63,3 +63,16 @@ C:\Users\Astral\Documents\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-mai
 C:\Users\Astral\Documents\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\refint\Frozen_Elsa.dll
 C:\Users\Astral\Documents\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.pdb
 C:\Users\Astral\Documents\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\ref\Frozen_Elsa.dll
+C:\Users\Astral\OneDrive\Documentos\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\bin\Debug\net8.0\lang\en.json
+C:\Users\Astral\OneDrive\Documentos\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\bin\Debug\net8.0\Frozen_Elsa.deps.json
+C:\Users\Astral\OneDrive\Documentos\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\bin\Debug\net8.0\Frozen_Elsa.dll
+C:\Users\Astral\OneDrive\Documentos\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\bin\Debug\net8.0\Frozen_Elsa.pdb
+C:\Users\Astral\OneDrive\Documentos\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.csproj.AssemblyReference.cache
+C:\Users\Astral\OneDrive\Documentos\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Astral\OneDrive\Documentos\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.AssemblyInfoInputs.cache
+C:\Users\Astral\OneDrive\Documentos\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.AssemblyInfo.cs
+C:\Users\Astral\OneDrive\Documentos\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.csproj.CoreCompileInputs.cache
+C:\Users\Astral\OneDrive\Documentos\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.dll
+C:\Users\Astral\OneDrive\Documentos\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\refint\Frozen_Elsa.dll
+C:\Users\Astral\OneDrive\Documentos\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.pdb
+C:\Users\Astral\OneDrive\Documentos\Dotnet 8 Projetos cs2\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\ref\Frozen_Elsa.dll

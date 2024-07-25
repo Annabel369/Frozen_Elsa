@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "CounterStrikeSharp.API/1.0.247": {
+      "CounterStrikeSharp.API/1.0.248": {
         "type": "package",
         "dependencies": {
           "McMaster.NETCore.Plugins": "1.4.0",
@@ -907,14 +907,14 @@
     }
   },
   "libraries": {
-    "CounterStrikeSharp.API/1.0.247": {
-      "sha512": "NkXGs26tIVG02MUgBzUyK4tnrzg10njA7ebP/mRODBVLJHElYtLIRIYO00r+kKk5qj4EsELmz/RihOT0nr9F0A==",
+    "CounterStrikeSharp.API/1.0.248": {
+      "sha512": "Dn66gFsGfQiGtLjUhSYla9k07C2JFnjDJ4F0wUX+WT0kBRYGePgmolkGbD6XbgsQakIIgQWVq0YbwXVt6n/DxA==",
       "type": "package",
-      "path": "counterstrikesharp.api/1.0.247",
+      "path": "counterstrikesharp.api/1.0.248",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "counterstrikesharp.api.1.0.247.nupkg.sha512",
+        "counterstrikesharp.api.1.0.248.nupkg.sha512",
         "counterstrikesharp.api.nuspec",
         "lib/net8.0/CounterStrikeSharp.API.dll",
         "lib/net8.0/CounterStrikeSharp.API.runtimeconfig.json",
@@ -2559,7 +2559,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "CounterStrikeSharp.API >= 1.0.247",
+      "CounterStrikeSharp.API >= 1.0.248",
       "Microsoft.CSharp >= 4.7.0",
       "Newtonsoft.Json >= 13.0.3"
     ]
@@ -2571,11 +2571,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Astral\\Documents\\Dotnet 8 Projetos cs2\\Frozen_Elsa-main\\Frozen_Elsa-main\\Frozen_Elsa.csproj",
+      "projectUniqueName": "C:\\Users\\Astral\\OneDrive\\Documentos\\Dotnet 8 Projetos cs2\\Frozen_Elsa-main\\Frozen_Elsa-main\\Frozen_Elsa.csproj",
       "projectName": "Frozen_Elsa",
-      "projectPath": "C:\\Users\\Astral\\Documents\\Dotnet 8 Projetos cs2\\Frozen_Elsa-main\\Frozen_Elsa-main\\Frozen_Elsa.csproj",
+      "projectPath": "C:\\Users\\Astral\\OneDrive\\Documentos\\Dotnet 8 Projetos cs2\\Frozen_Elsa-main\\Frozen_Elsa-main\\Frozen_Elsa.csproj",
       "packagesPath": "C:\\Users\\Astral\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Astral\\Documents\\Dotnet 8 Projetos cs2\\Frozen_Elsa-main\\Frozen_Elsa-main\\obj\\",
+      "outputPath": "C:\\Users\\Astral\\OneDrive\\Documentos\\Dotnet 8 Projetos cs2\\Frozen_Elsa-main\\Frozen_Elsa-main\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2618,7 +2618,7 @@
             "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "None",
             "target": "Package",
-            "version": "[1.0.247, )"
+            "version": "[1.0.248, )"
           },
           "Microsoft.CSharp": {
             "target": "Package",
