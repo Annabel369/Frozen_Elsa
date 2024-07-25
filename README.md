@@ -13,6 +13,21 @@ https://www.youtube.com/watch?v=MWYbYk941AM
         !s buy Smoke
       !a test music
 
+  edit rename file admin_overrides.exemple.json for admin_overrides.json
+
+    // [RequiresPermissions("@css/custom-permission")]
+
+  edit rename file admin_groups.exemple.json for admin_groups.json
+
+
+  commad console add vip (@css/custom-permission) :
+  
+                    css_addadmin 76561199737411180 NameUser @css/custom-permission 40 40000
+  
+  commad console add Master admin (@css/root):
+
+                    css_addadmin 76561199737411180 Astral2 @css/root 99 99999
+
  
 
 
