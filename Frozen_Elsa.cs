@@ -154,10 +154,23 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
         return ((int)beam.Index, beam);
     }
 
+    Color[] RainbowColors = {
+        Color.FromArgb(255, 255, 255, 255), // White
+        Color.FromArgb(255, 255, 0, 0),     // Red
+        Color.FromArgb(255, 255, 0, 255),   // Magenta
+        Color.FromArgb(255, 255, 255, 0),   // Yellow
+        Color.FromArgb(255, 0, 255, 0),     // Green
+        Color.FromArgb(255, 0, 255, 255),   // Cyan
+        Color.FromArgb(255, 0, 0, 255)      // Blue
+    };
+
     [GameEventHandler(HookMode.Pre)]
     public HookResult BulletImpact(EventBulletImpact @event, GameEventInfo info)
     {
         CCSPlayerController? player = @event.Userid;
+
+        Random random = new Random();
+        int NumberRandom = random.Next(1, 8);// Random 1 to 7
 
         Vector? PlayerPosition = player?.Pawn?.Value?.AbsOrigin;
         Vector? BulletOrigin = new Vector(PlayerPosition?.X, PlayerPosition?.Y, PlayerPosition?.Z + 57);
@@ -165,11 +178,11 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
 
         if (player?.TeamNum == 3)
         {
-            DrawLaserBetween(BulletOrigin, bulletDestination, Color.Blue, 0.2f, 1.0f);
+            DrawLaserBetween(BulletOrigin, bulletDestination, RainbowColors[NumberRandom], 0.2f, 1.0f);//default Color.Blue or RGB RainbowColors[NumberRandom]
         }
         else if (player?.TeamNum == 2)
         {
-            DrawLaserBetween(BulletOrigin, bulletDestination, Color.Red, 0.2f, 1.0f);
+            DrawLaserBetween(BulletOrigin, bulletDestination, RainbowColors[NumberRandom], 0.2f, 1.0f);//default Color.Red
         }
 
         return HookResult.Continue;
