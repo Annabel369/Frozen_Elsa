@@ -151,6 +151,8 @@ public partial class Frozen_Elsa
         {
             shouldShowImage = false;
         });
+
+        //isCatAnimationOn = !isCatAnimationOn;// kabummmm
     }
 
     [ConsoleCommand("css_ela", "ela")]// !ela
@@ -212,7 +214,7 @@ public partial class Frozen_Elsa
         });
     }
 
-    [ConsoleCommand("css_vip", "vip")]// !dc
+    [ConsoleCommand("css_a", "a")]// !a
     [RequiresPermissions("@css/custom-permission")]
     public void OnCommandAItems(CCSPlayerController? player, CommandInfo commandInfo)
     {
