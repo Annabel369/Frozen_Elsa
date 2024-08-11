@@ -12,6 +12,7 @@ https://www.youtube.com/watch?v=MWYbYk941AM
         !m buy Molotove
         !s buy Smoke
       !a test music
+      !vip (@css/custom-permission 40 40000) 
 
   
 Edit file game\csgo\addons\counterstrikesharp\configs\admin_groups.exemple.json for admin_groups.json
