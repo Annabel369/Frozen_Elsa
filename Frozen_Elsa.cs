@@ -1,9 +1,10 @@
-using System.Text.Json.Serialization;
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Admin;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
 using CounterStrikeSharp.API.Modules.Utils;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using System.Drawing;
 
 
@@ -20,6 +21,12 @@ public class Config : BasePluginConfig
     [JsonPropertyName("ConfigVersion")]
     public override int Version { get; set; } = 2;
 
+    [JsonPropertyName("ad_texts")]
+    public List<string> AdTexts { get; set; } = new List<string> { "VIP", "VIP" };
+
+    [JsonPropertyName("show_ad_message")]
+    public bool ShowAdMessage { get; set; } = true;
+
 
     public bool IsHooked { get; set; }
     public CBeam? BeamEntity { get; set; }
@@ -28,9 +35,9 @@ public class Config : BasePluginConfig
 public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
 {
     public override string ModuleName => "Frozen_Elsa";
-    public override string ModuleAuthor => "Astral & Nathy laser, AddTimer, custom";
+    public override string ModuleAuthor => "AMAURI BUENO DOS SANTOS";
     public override string ModuleDescription => "Adds Grenades Special Effects.";
-    public override string ModuleVersion => "V. 2.1.7";
+    public override string ModuleVersion => "V. 2.1.8";
 
     public required Config Config { get; set; }
     public byte LIFE_ALIVE { get; private set; }
@@ -96,7 +103,7 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
         }
     }
 
-private bool HasPermission(CCSPlayerController player, string id)
+private bool HasPermission(CCSPlayerController? player, string id)
     {
         string permission = string.Empty;
         string team = string.Empty;
