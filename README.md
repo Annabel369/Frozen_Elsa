@@ -11,6 +11,7 @@ https://www.youtube.com/watch?v=MWYbYk941AM
         !f buy Fashbang
         !m buy Molotove
         !s buy Smoke
+        !bot add or kick time 33 or 3
       !a test music
       !vip (@css/custom-permission 40 40000) 
 
