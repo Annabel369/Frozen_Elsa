@@ -2,8 +2,9 @@ using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Admin;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
+using CounterStrikeSharp.API.Core.Translations;
 using CounterStrikeSharp.API.Modules.Utils;
-using System.Collections.Generic;
+using Frozen_Elsa.Repository;
 using System.Text.Json.Serialization;
 using System.Drawing;
 
@@ -12,38 +13,22 @@ using System.Drawing;
 
 
 namespace Frozen_Elsa;
-public class Config : BasePluginConfig
-{
 
-    
-    [JsonPropertyName("show-player-counter")]
-    public bool PlayerCounter { get; set; } = true;
-    [JsonPropertyName("ConfigVersion")]
-    public override int Version { get; set; } = 2;
-
-    [JsonPropertyName("ad_texts")]
-    public List<string> AdTexts { get; set; } = new List<string> { "VIP", "VIP" };
-
-    [JsonPropertyName("show_ad_message")]
-    public bool ShowAdMessage { get; set; } = true;
-
-
-    public bool IsHooked { get; set; }
-    public CBeam? BeamEntity { get; set; }
-    public System.Numerics.Vector3 ForwardVector { get; set; }
-}
-public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
-{
+public partial class Frozen_Elsa : BasePlugin
+{ 
     public override string ModuleName => "Frozen_Elsa";
     public override string ModuleAuthor => "AMAURI BUENO DOS SANTOS";
     public override string ModuleDescription => "Adds Grenades Special Effects.";
-    public override string ModuleVersion => "V. 2.1.8";
+    public override string ModuleVersion => "V. 2.1.9";
 
-    public required Config Config { get; set; }
+    public bool IsHooked { get; set; }
+
+    public System.Numerics.Vector3 ForwardVector { get; set; }
     public byte LIFE_ALIVE { get; private set; }
     private static readonly Vector VectorZero = new Vector(0, 0, 0);
     private static readonly QAngle RotationZero = new QAngle(0, 0, 0);
     private bool shouldShowImage = false;
+    public CBeam? BeamEntity { get; set; }
     //private bool isCatAnimationOn = false;//on or off 
     public bool bombsiteAnnouncer;
 
@@ -52,20 +37,13 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
         RegisterListener<Listeners.OnTick>(OnTick);
     }
 
-    public void OnConfigParsed(Config config)
-    {
 
-
-        Config = config;
-    }
 
 
     [GameEventHandler]
     public HookResult OnRoundEnd(EventPlayerDeath @event, GameEventInfo info)
     {
         bombsiteAnnouncer = false;
-        if (Config is not null)
-        {
             // sphere ent
             foreach (var player in Utilities.FindAllEntitiesByDesignerName<CCSPlayerController>("cs_player_controller"))
             {
@@ -82,7 +60,6 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
                 }
             }
 
-        }
         return HookResult.Continue;
     }
 
@@ -124,10 +101,10 @@ private bool HasPermission(CCSPlayerController? player, string id)
                isTeamValid(player, team.ToLower());
     }
 
-     public bool isTeamValid(CCSPlayerController player, string team)
+     public bool isTeamValid(CCSPlayerController? player, string team)
     {
-        return (team == "t" || team == "terrorist") && player.Team == CsTeam.Terrorist ||
-               (team == "ct" || team == "counterterrorist") && player.Team == CsTeam.CounterTerrorist ||
+        return (team == "t" || team == "terrorist") && player?.Team == CsTeam.Terrorist ||
+               (team == "ct" || team == "counterterrorist") && player?.Team == CsTeam.CounterTerrorist ||
                string.IsNullOrEmpty(team) || team == "both" || team == "all";
     }
 
@@ -237,7 +214,7 @@ Color[] RainbowColors = {
         Color.FromArgb(255, 0, 0, 255),      // Blue
         Color.FromArgb(255, 0, 255, 255),   // Cyan
         Color.FromArgb(255, 255, 255, 0),   // Yellow
-        Color.FromArgb(255, 255, 255, 255), // White
+        Color.FromArgb(255, 250, 250, 250), // White
         Color.FromArgb(255, 255, 0, 255),   // Magenta
     };
 

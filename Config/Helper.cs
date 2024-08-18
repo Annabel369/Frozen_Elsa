@@ -2,11 +2,9 @@ using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Admin;
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Modules.Utils;
-using CounterStrikeSharp.API.Modules.Entities;
 using System.Text.RegularExpressions;
 using System.Text.Json;
-using CounterStrikeSharp.API.Modules.Commands;
-using CounterStrikeSharp.API.Modules.Entities.Constants;
+
 
 namespace Frozen_Elsa;
 
@@ -97,19 +95,7 @@ public class Helper
     {
         return Utilities.GetPlayers().Count(p => p != null && p.IsValid && !p.IsBot && !p.IsHLTV && p.Connected == PlayerConnectedState.PlayerConnected);
     }
-    public static void ClearVariables()
-    {
-        Globals.Kill_Streak.Clear();
-        Globals.Kill_StreakHS.Clear();
-        Globals.Kill_Knife.Clear();
-        Globals.Kill_Nade.Clear();
-        Globals.Kill_Molly.Clear();
-        Globals.lastPlayTimes.Clear();
-        Globals.lastPlayTimesHS.Clear();
-        Globals.lastPlayTimesKnife.Clear();
-        Globals.lastPlayTimesNade.Clear();
-        Globals.lastPlayTimesMolly.Clear();
-    }
+   
     
     public static string ReplaceMessages(string Message, string date, string time, string PlayerName, string SteamId, string ipAddress, string reason)
     {

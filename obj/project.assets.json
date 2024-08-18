@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "CounterStrikeSharp.API/1.0.253": {
+      "CounterStrikeSharp.API/1.0.255": {
         "type": "package",
         "dependencies": {
           "McMaster.NETCore.Plugins": "1.4.0",
@@ -907,14 +907,14 @@
     }
   },
   "libraries": {
-    "CounterStrikeSharp.API/1.0.253": {
-      "sha512": "MYEDI5k6LIEhZDZ1m+mOQJzIGR2seq/xu6wR2tGngdNs2MHeng3TAqXDdFjJCfyHLKEmnL2GrNHXyosAIllvZQ==",
+    "CounterStrikeSharp.API/1.0.255": {
+      "sha512": "r+UI2ei13YB+aulJNT05w5gcLFViBVJ50GVHf3zWWJ88w+pzgijjU/EoHIa5oEsKDK0zsGlLZ1hGsIt0gnf0CQ==",
       "type": "package",
-      "path": "counterstrikesharp.api/1.0.253",
+      "path": "counterstrikesharp.api/1.0.255",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "counterstrikesharp.api.1.0.253.nupkg.sha512",
+        "counterstrikesharp.api.1.0.255.nupkg.sha512",
         "counterstrikesharp.api.nuspec",
         "lib/net8.0/CounterStrikeSharp.API.dll",
         "lib/net8.0/CounterStrikeSharp.API.runtimeconfig.json",
@@ -2559,30 +2559,38 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "CounterStrikeSharp.API >= 1.0.253",
+      "CounterStrikeSharp.API >= 1.0.255",
       "Microsoft.CSharp >= 4.7.0",
       "Newtonsoft.Json >= 13.0.3"
     ]
   },
   "packageFolders": {
-    "/home/amauri/.nuget/packages/": {}
+    "C:\\Users\\amaur\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/amauri/Documentos/Projetosdot8/Frozen_Elsa-main/Frozen_Elsa.csproj",
+      "projectUniqueName": "C:\\Users\\amaur\\Downloads\\Frozen_Elsa-main\\Frozen_Elsa-main\\Frozen_Elsa.csproj",
       "projectName": "Frozen_Elsa",
-      "projectPath": "/home/amauri/Documentos/Projetosdot8/Frozen_Elsa-main/Frozen_Elsa.csproj",
-      "packagesPath": "/home/amauri/.nuget/packages/",
-      "outputPath": "/home/amauri/Documentos/Projetosdot8/Frozen_Elsa-main/obj/",
+      "projectPath": "C:\\Users\\amaur\\Downloads\\Frozen_Elsa-main\\Frozen_Elsa-main\\Frozen_Elsa.csproj",
+      "packagesPath": "C:\\Users\\amaur\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\amaur\\Downloads\\Frozen_Elsa-main\\Frozen_Elsa-main\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/amauri/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\amaur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2595,6 +2603,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2605,7 +2618,7 @@
             "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "None",
             "target": "Package",
-            "version": "[1.0.253, )"
+            "version": "[1.0.255, )"
           },
           "Microsoft.CSharp": {
             "target": "Package",
@@ -2632,7 +2645,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.107/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
