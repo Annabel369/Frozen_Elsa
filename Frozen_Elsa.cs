@@ -17,7 +17,7 @@ namespace Frozen_Elsa;
 public partial class Frozen_Elsa : BasePlugin
 { 
     public override string ModuleName => "Frozen_Elsa";
-    public override string ModuleAuthor => "AMAURI BUENO DOS SANTOS";
+    public override string ModuleAuthor => "Annabel369";
     public override string ModuleDescription => "Adds Grenades Special Effects.";
     public override string ModuleVersion => "V. 2.1.9";
 
