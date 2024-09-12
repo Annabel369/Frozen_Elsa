@@ -36,11 +36,16 @@ Command console Admin Master (@css/root):
 
 
 ### Dependencies
-[Metamod:Source](https://www.sourcemm.net/downloads.php/?branch=master "Metamod:Source")
-[CounterStrike Sharp](https://github.com/roflmuffin/CounterStrikeSharp "CounterStrike Sharp")
-[CS2-SimpleAdmin](https://github.com/daffyyyy/CS2-SimpleAdmin "CS2-SimpleAdmin")
+1- [Metamod:Source](https://www.sourcemm.net/downloads.php/?branch=master "Metamod:Source")
 
-[MultiAddonManager](https://github.com/Source2ZE/MultiAddonManager "MultiAddonManager") 
+
+2- [CounterStrike Sharp](https://github.com/roflmuffin/CounterStrikeSharp "CounterStrike Sharp")
+
+
+3- [CS2-SimpleAdmin](https://github.com/daffyyyy/CS2-SimpleAdmin "CS2-SimpleAdmin")
+
+
+4- [MultiAddonManager](https://github.com/Source2ZE/MultiAddonManager "MultiAddonManager") 
       
       // Extra addon settings, this is only executed once on plugin load
       
