@@ -38,6 +38,7 @@ Command console Admin Master (@css/root):
 ### Dependencies
 [Metamod:Source](https://www.sourcemm.net/downloads.php/?branch=master "Metamod:Source")
 [CounterStrike Sharp](https://github.com/roflmuffin/CounterStrikeSharp "CounterStrike Sharp")
+[CS2-SimpleAdmin](https://github.com/daffyyyy/CS2-SimpleAdmin "CS2-SimpleAdmin")
 
 [MultiAddonManager](https://github.com/Source2ZE/MultiAddonManager "MultiAddonManager") 
       
