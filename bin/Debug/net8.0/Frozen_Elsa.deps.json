@@ -8,15 +8,16 @@
     ".NETCoreApp,Version=v8.0": {
       "Frozen_Elsa/1.0.0": {
         "dependencies": {
-          "CounterStrikeSharp.API": "1.0.255",
+          "CounterStrikeSharp.API": "1.0.337",
           "Microsoft.CSharp": "4.7.0",
-          "Newtonsoft.Json": "13.0.3"
+          "Newtonsoft.Json": "13.0.3",
+          "System.Text.Json": "9.0.8"
         },
         "runtime": {
           "Frozen_Elsa.dll": {}
         }
       },
-      "CounterStrikeSharp.API/1.0.255": {
+      "CounterStrikeSharp.API/1.0.337": {
         "dependencies": {
           "McMaster.NETCore.Plugins": "1.4.0",
           "Microsoft.CSharp": "4.7.0",
@@ -29,7 +30,8 @@
           "Serilog.Extensions.Logging": "8.0.0",
           "Serilog.Sinks.Console": "5.0.0",
           "Serilog.Sinks.File": "5.0.0",
-          "System.Data.DataSetExtensions": "4.5.0"
+          "System.Data.DataSetExtensions": "4.5.0",
+          "Tomlyn": "0.19.0"
         }
       },
       "McMaster.NETCore.Plugins/1.4.0": {
@@ -84,7 +86,7 @@
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
           "Microsoft.Extensions.Configuration.FileExtensions": "8.0.0",
           "Microsoft.Extensions.FileProviders.Abstractions": "8.0.0",
-          "System.Text.Json": "8.0.0"
+          "System.Text.Json": "9.0.8"
         }
       },
       "Microsoft.Extensions.Configuration.UserSecrets/8.0.0": {
@@ -106,8 +108,8 @@
           "System.Buffers": "4.5.1",
           "System.Memory": "4.5.4",
           "System.Runtime.CompilerServices.Unsafe": "6.0.0",
-          "System.Text.Encodings.Web": "8.0.0",
-          "System.Text.Json": "8.0.0"
+          "System.Text.Encodings.Web": "9.0.8",
+          "System.Text.Json": "9.0.8"
         }
       },
       "Microsoft.Extensions.Diagnostics/8.0.0": {
@@ -204,7 +206,7 @@
           "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
           "Microsoft.Extensions.Logging.Configuration": "8.0.0",
           "Microsoft.Extensions.Options": "8.0.0",
-          "System.Text.Json": "8.0.0"
+          "System.Text.Json": "9.0.8"
         }
       },
       "Microsoft.Extensions.Logging.Debug/8.0.0": {
@@ -230,7 +232,7 @@
           "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
           "Microsoft.Extensions.Options": "8.0.0",
           "Microsoft.Extensions.Primitives": "8.0.0",
-          "System.Text.Json": "8.0.0"
+          "System.Text.Json": "9.0.8"
         }
       },
       "Microsoft.Extensions.Options/8.0.0": {
@@ -284,14 +286,45 @@
       "System.Data.DataSetExtensions/4.5.0": {},
       "System.Diagnostics.DiagnosticSource/8.0.0": {},
       "System.Diagnostics.EventLog/8.0.0": {},
+      "System.IO.Pipelines/9.0.8": {
+        "runtime": {
+          "lib/net8.0/System.IO.Pipelines.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.825.36511"
+          }
+        }
+      },
       "System.Memory/4.5.4": {},
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
-      "System.Text.Encodings.Web/8.0.0": {},
-      "System.Text.Json/8.0.0": {
-        "dependencies": {
-          "System.Text.Encodings.Web": "8.0.0"
+      "System.Text.Encodings.Web/9.0.8": {
+        "runtime": {
+          "lib/net8.0/System.Text.Encodings.Web.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.825.36511"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll": {
+            "rid": "browser",
+            "assetType": "runtime",
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.825.36511"
+          }
         }
-      }
+      },
+      "System.Text.Json/9.0.8": {
+        "dependencies": {
+          "System.IO.Pipelines": "9.0.8",
+          "System.Text.Encodings.Web": "9.0.8"
+        },
+        "runtime": {
+          "lib/net8.0/System.Text.Json.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.825.36511"
+          }
+        }
+      },
+      "Tomlyn/0.19.0": {}
     }
   },
   "libraries": {
@@ -300,12 +333,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "CounterStrikeSharp.API/1.0.255": {
+    "CounterStrikeSharp.API/1.0.337": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-r+UI2ei13YB+aulJNT05w5gcLFViBVJ50GVHf3zWWJ88w+pzgijjU/EoHIa5oEsKDK0zsGlLZ1hGsIt0gnf0CQ==",
-      "path": "counterstrikesharp.api/1.0.255",
-      "hashPath": "counterstrikesharp.api.1.0.255.nupkg.sha512"
+      "sha512": "sha512-10oeB4TCc2ADcPnE+Qu2qtVmz9R/S2GPy58WA5BGNzXYthlL+ig23XgHwXLl3IFNZsHClK1SiHC0scMUOluQxA==",
+      "path": "counterstrikesharp.api/1.0.337",
+      "hashPath": "counterstrikesharp.api.1.0.337.nupkg.sha512"
     },
     "McMaster.NETCore.Plugins/1.4.0": {
       "type": "package",
@@ -608,6 +641,13 @@
       "path": "system.diagnostics.eventlog/8.0.0",
       "hashPath": "system.diagnostics.eventlog.8.0.0.nupkg.sha512"
     },
+    "System.IO.Pipelines/9.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6vPmJt73mgUo1gzc/OcXlJvClz/2jxZ4TQPRfriVaLoGRH2mye530D9WHJYbFQRNMxF3PWCoeofsFdCyN7fLzA==",
+      "path": "system.io.pipelines/9.0.8",
+      "hashPath": "system.io.pipelines.9.0.8.nupkg.sha512"
+    },
     "System.Memory/4.5.4": {
       "type": "package",
       "serviceable": true,
@@ -622,19 +662,26 @@
       "path": "system.runtime.compilerservices.unsafe/6.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
     },
-    "System.Text.Encodings.Web/8.0.0": {
+    "System.Text.Encodings.Web/9.0.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-yev/k9GHAEGx2Rg3/tU6MQh4HGBXJs70y7j1LaM1i/ER9po+6nnQ6RRqTJn1E7Xu0fbIFK80Nh5EoODxrbxwBQ==",
-      "path": "system.text.encodings.web/8.0.0",
-      "hashPath": "system.text.encodings.web.8.0.0.nupkg.sha512"
+      "sha512": "sha512-W+LotQsM4wBJ4PG7uRkyul4wqL4Fz7R4ty6uXrCNZUhbaHYANgrPaYR2ZpMVpdCjQEJ17Jr1NMN8hv4SHaHY4A==",
+      "path": "system.text.encodings.web/9.0.8",
+      "hashPath": "system.text.encodings.web.9.0.8.nupkg.sha512"
     },
-    "System.Text.Json/8.0.0": {
+    "System.Text.Json/9.0.8": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OdrZO2WjkiEG6ajEFRABTRCi/wuXQPxeV6g8xvUJqdxMvvuCCEk86zPla8UiIQJz3durtUEbNyY/3lIhS0yZvQ==",
-      "path": "system.text.json/8.0.0",
-      "hashPath": "system.text.json.8.0.0.nupkg.sha512"
+      "sha512": "sha512-mIQir9jBqk0V7X0Nw5hzPJZC8DuGdf+2DS3jAVsr6rq5+/VyH5rza0XGcONJUWBrZ+G6BCwNyjWYd9lncBu48A==",
+      "path": "system.text.json/9.0.8",
+      "hashPath": "system.text.json.9.0.8.nupkg.sha512"
+    },
+    "Tomlyn/0.19.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GlI2o8R8jbZIaE+YX6uA/VoAOH7zIxYeqxDm7jHW2hqUhuB+q19oKold35FkMuv8IZDoCqsTMolaBv2eBLBmrQ==",
+      "path": "tomlyn/0.19.0",
+      "hashPath": "tomlyn.0.19.0.nupkg.sha512"
     }
   }
 }

@@ -102,3 +102,17 @@ C:\Users\amaur\Downloads\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\Froz
 C:\Users\amaur\Downloads\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\refint\Frozen_Elsa.dll
 C:\Users\amaur\Downloads\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\Frozen_Elsa.pdb
 C:\Users\amaur\Downloads\Frozen_Elsa-main\Frozen_Elsa-main\obj\Debug\net8.0\ref\Frozen_Elsa.dll
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\bin\Debug\net8.0\lang\en.json
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\bin\Debug\net8.0\Frozen_Elsa.deps.json
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\bin\Debug\net8.0\Frozen_Elsa.dll
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\bin\Debug\net8.0\Frozen_Elsa.pdb
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.csproj.AssemblyReference.cache
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.AssemblyInfoInputs.cache
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.AssemblyInfo.cs
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.csproj.CoreCompileInputs.cache
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.sourcelink.json
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.dll
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Debug\net8.0\refint\Frozen_Elsa.dll
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.pdb
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Debug\net8.0\ref\Frozen_Elsa.dll

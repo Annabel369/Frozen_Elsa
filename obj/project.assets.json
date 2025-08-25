@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "CounterStrikeSharp.API/1.0.255": {
+      "CounterStrikeSharp.API/1.0.337": {
         "type": "package",
         "dependencies": {
           "McMaster.NETCore.Plugins": "1.4.0",
@@ -16,7 +16,8 @@
           "Serilog.Extensions.Logging": "8.0.0",
           "Serilog.Sinks.Console": "5.0.0",
           "Serilog.Sinks.File": "5.0.0",
-          "System.Data.DataSetExtensions": "4.5.0"
+          "System.Data.DataSetExtensions": "4.5.0",
+          "Tomlyn": "0.19.0"
         },
         "compile": {
           "lib/net8.0/CounterStrikeSharp.API.dll": {
@@ -838,6 +839,22 @@
           }
         }
       },
+      "System.IO.Pipelines/9.0.8": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.IO.Pipelines.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
       "System.Memory/4.5.4": {
         "type": "package",
         "compile": {
@@ -863,7 +880,7 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "System.Text.Encodings.Web/8.0.0": {
+      "System.Text.Encodings.Web/9.0.8": {
         "type": "package",
         "compile": {
           "lib/net8.0/System.Text.Encodings.Web.dll": {
@@ -871,24 +888,25 @@
           }
         },
         "runtime": {
-          "lib/net8.0/_._": {
+          "lib/net8.0/System.Text.Encodings.Web.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         },
         "runtimeTargets": {
-          "runtimes/browser/lib/net8.0/_._": {
+          "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll": {
             "assetType": "runtime",
             "rid": "browser"
           }
         }
       },
-      "System.Text.Json/8.0.0": {
+      "System.Text.Json/9.0.8": {
         "type": "package",
         "dependencies": {
-          "System.Text.Encodings.Web": "8.0.0"
+          "System.IO.Pipelines": "9.0.8",
+          "System.Text.Encodings.Web": "9.0.8"
         },
         "compile": {
           "lib/net8.0/System.Text.Json.dll": {
@@ -896,25 +914,38 @@
           }
         },
         "runtime": {
-          "lib/net8.0/_._": {
+          "lib/net8.0/System.Text.Json.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/net6.0/System.Text.Json.targets": {}
+          "buildTransitive/net8.0/System.Text.Json.targets": {}
+        }
+      },
+      "Tomlyn/0.19.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Tomlyn.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/_._": {
+            "related": ".xml"
+          }
         }
       }
     }
   },
   "libraries": {
-    "CounterStrikeSharp.API/1.0.255": {
-      "sha512": "r+UI2ei13YB+aulJNT05w5gcLFViBVJ50GVHf3zWWJ88w+pzgijjU/EoHIa5oEsKDK0zsGlLZ1hGsIt0gnf0CQ==",
+    "CounterStrikeSharp.API/1.0.337": {
+      "sha512": "10oeB4TCc2ADcPnE+Qu2qtVmz9R/S2GPy58WA5BGNzXYthlL+ig23XgHwXLl3IFNZsHClK1SiHC0scMUOluQxA==",
       "type": "package",
-      "path": "counterstrikesharp.api/1.0.255",
+      "path": "counterstrikesharp.api/1.0.337",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "counterstrikesharp.api.1.0.255.nupkg.sha512",
+        "counterstrikesharp.api.1.0.337.nupkg.sha512",
         "counterstrikesharp.api.nuspec",
         "lib/net8.0/CounterStrikeSharp.API.dll",
         "lib/net8.0/CounterStrikeSharp.API.runtimeconfig.json",
@@ -2400,6 +2431,34 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "System.IO.Pipelines/9.0.8": {
+      "sha512": "6vPmJt73mgUo1gzc/OcXlJvClz/2jxZ4TQPRfriVaLoGRH2mye530D9WHJYbFQRNMxF3PWCoeofsFdCyN7fLzA==",
+      "type": "package",
+      "path": "system.io.pipelines/9.0.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.IO.Pipelines.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.IO.Pipelines.targets",
+        "lib/net462/System.IO.Pipelines.dll",
+        "lib/net462/System.IO.Pipelines.xml",
+        "lib/net8.0/System.IO.Pipelines.dll",
+        "lib/net8.0/System.IO.Pipelines.xml",
+        "lib/net9.0/System.IO.Pipelines.dll",
+        "lib/net9.0/System.IO.Pipelines.xml",
+        "lib/netstandard2.0/System.IO.Pipelines.dll",
+        "lib/netstandard2.0/System.IO.Pipelines.xml",
+        "system.io.pipelines.9.0.8.nupkg.sha512",
+        "system.io.pipelines.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.Memory/4.5.4": {
       "sha512": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
       "type": "package",
@@ -2448,45 +2507,42 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.Text.Encodings.Web/8.0.0": {
-      "sha512": "yev/k9GHAEGx2Rg3/tU6MQh4HGBXJs70y7j1LaM1i/ER9po+6nnQ6RRqTJn1E7Xu0fbIFK80Nh5EoODxrbxwBQ==",
+    "System.Text.Encodings.Web/9.0.8": {
+      "sha512": "W+LotQsM4wBJ4PG7uRkyul4wqL4Fz7R4ty6uXrCNZUhbaHYANgrPaYR2ZpMVpdCjQEJ17Jr1NMN8hv4SHaHY4A==",
       "type": "package",
-      "path": "system.text.encodings.web/8.0.0",
+      "path": "system.text.encodings.web/9.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
+        "PACKAGE.md",
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/System.Text.Encodings.Web.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
+        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/System.Text.Encodings.Web.targets",
         "lib/net462/System.Text.Encodings.Web.dll",
         "lib/net462/System.Text.Encodings.Web.xml",
-        "lib/net6.0/System.Text.Encodings.Web.dll",
-        "lib/net6.0/System.Text.Encodings.Web.xml",
-        "lib/net7.0/System.Text.Encodings.Web.dll",
-        "lib/net7.0/System.Text.Encodings.Web.xml",
         "lib/net8.0/System.Text.Encodings.Web.dll",
         "lib/net8.0/System.Text.Encodings.Web.xml",
+        "lib/net9.0/System.Text.Encodings.Web.dll",
+        "lib/net9.0/System.Text.Encodings.Web.xml",
         "lib/netstandard2.0/System.Text.Encodings.Web.dll",
         "lib/netstandard2.0/System.Text.Encodings.Web.xml",
-        "runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll",
-        "runtimes/browser/lib/net6.0/System.Text.Encodings.Web.xml",
-        "runtimes/browser/lib/net7.0/System.Text.Encodings.Web.dll",
-        "runtimes/browser/lib/net7.0/System.Text.Encodings.Web.xml",
         "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll",
         "runtimes/browser/lib/net8.0/System.Text.Encodings.Web.xml",
-        "system.text.encodings.web.8.0.0.nupkg.sha512",
+        "runtimes/browser/lib/net9.0/System.Text.Encodings.Web.dll",
+        "runtimes/browser/lib/net9.0/System.Text.Encodings.Web.xml",
+        "system.text.encodings.web.9.0.8.nupkg.sha512",
         "system.text.encodings.web.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
-    "System.Text.Json/8.0.0": {
-      "sha512": "OdrZO2WjkiEG6ajEFRABTRCi/wuXQPxeV6g8xvUJqdxMvvuCCEk86zPla8UiIQJz3durtUEbNyY/3lIhS0yZvQ==",
+    "System.Text.Json/9.0.8": {
+      "sha512": "mIQir9jBqk0V7X0Nw5hzPJZC8DuGdf+2DS3jAVsr6rq5+/VyH5rza0XGcONJUWBrZ+G6BCwNyjWYd9lncBu48A==",
       "type": "package",
-      "path": "system.text.json/8.0.0",
+      "path": "system.text.json/9.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2538,50 +2594,66 @@
         "analyzers/dotnet/roslyn4.4/cs/zh-Hant/System.Text.Json.SourceGeneration.resources.dll",
         "buildTransitive/net461/System.Text.Json.targets",
         "buildTransitive/net462/System.Text.Json.targets",
-        "buildTransitive/net6.0/System.Text.Json.targets",
+        "buildTransitive/net8.0/System.Text.Json.targets",
         "buildTransitive/netcoreapp2.0/System.Text.Json.targets",
         "buildTransitive/netstandard2.0/System.Text.Json.targets",
         "lib/net462/System.Text.Json.dll",
         "lib/net462/System.Text.Json.xml",
-        "lib/net6.0/System.Text.Json.dll",
-        "lib/net6.0/System.Text.Json.xml",
-        "lib/net7.0/System.Text.Json.dll",
-        "lib/net7.0/System.Text.Json.xml",
         "lib/net8.0/System.Text.Json.dll",
         "lib/net8.0/System.Text.Json.xml",
+        "lib/net9.0/System.Text.Json.dll",
+        "lib/net9.0/System.Text.Json.xml",
         "lib/netstandard2.0/System.Text.Json.dll",
         "lib/netstandard2.0/System.Text.Json.xml",
-        "system.text.json.8.0.0.nupkg.sha512",
+        "system.text.json.9.0.8.nupkg.sha512",
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
+      ]
+    },
+    "Tomlyn/0.19.0": {
+      "sha512": "GlI2o8R8jbZIaE+YX6uA/VoAOH7zIxYeqxDm7jHW2hqUhuB+q19oKold35FkMuv8IZDoCqsTMolaBv2eBLBmrQ==",
+      "type": "package",
+      "path": "tomlyn/0.19.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net8.0/Tomlyn.dll",
+        "lib/net8.0/Tomlyn.xml",
+        "lib/netstandard2.0/Tomlyn.dll",
+        "lib/netstandard2.0/Tomlyn.xml",
+        "logo.png",
+        "readme.md",
+        "tomlyn.0.19.0.nupkg.sha512",
+        "tomlyn.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "CounterStrikeSharp.API >= 1.0.255",
+      "CounterStrikeSharp.API >= 1.0.337",
       "Microsoft.CSharp >= 4.7.0",
-      "Newtonsoft.Json >= 13.0.3"
+      "Newtonsoft.Json >= 13.0.3",
+      "System.Text.Json >= 9.0.8"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\amaur\\.nuget\\packages\\": {},
+    "C:\\Users\\Mickey\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\amaur\\Downloads\\Frozen_Elsa-main\\Frozen_Elsa-main\\Frozen_Elsa.csproj",
+      "projectUniqueName": "C:\\Users\\Mickey\\source\\repos\\Annabel369\\Frozen_Elsa\\Frozen_Elsa.csproj",
       "projectName": "Frozen_Elsa",
-      "projectPath": "C:\\Users\\amaur\\Downloads\\Frozen_Elsa-main\\Frozen_Elsa-main\\Frozen_Elsa.csproj",
-      "packagesPath": "C:\\Users\\amaur\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\amaur\\Downloads\\Frozen_Elsa-main\\Frozen_Elsa-main\\obj\\",
+      "projectPath": "C:\\Users\\Mickey\\source\\repos\\Annabel369\\Frozen_Elsa\\Frozen_Elsa.csproj",
+      "packagesPath": "C:\\Users\\Mickey\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mickey\\source\\repos\\Annabel369\\Frozen_Elsa\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\amaur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mickey\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2608,7 +2680,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -2618,7 +2691,7 @@
             "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "None",
             "target": "Package",
-            "version": "[1.0.255, )"
+            "version": "[1.0.337, )"
           },
           "Microsoft.CSharp": {
             "target": "Package",
@@ -2627,6 +2700,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "System.Text.Json": {
+            "target": "Package",
+            "version": "[9.0.8, )"
           }
         },
         "imports": [
@@ -2645,7 +2722,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

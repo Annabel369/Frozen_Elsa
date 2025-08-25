@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Frozen_Elsa")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4e6a2bb83c711920b8a42c64f75e222100160ef2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Frozen_Elsa")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Frozen_Elsa")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

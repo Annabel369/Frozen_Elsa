@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\amaur\\Downloads\\Frozen_Elsa-main\\Frozen_Elsa-main\\Frozen_Elsa.csproj": {}
+    "C:\\Users\\Mickey\\source\\repos\\Annabel369\\Frozen_Elsa\\Frozen_Elsa.csproj": {}
   },
   "projects": {
-    "C:\\Users\\amaur\\Downloads\\Frozen_Elsa-main\\Frozen_Elsa-main\\Frozen_Elsa.csproj": {
+    "C:\\Users\\Mickey\\source\\repos\\Annabel369\\Frozen_Elsa\\Frozen_Elsa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\amaur\\Downloads\\Frozen_Elsa-main\\Frozen_Elsa-main\\Frozen_Elsa.csproj",
+        "projectUniqueName": "C:\\Users\\Mickey\\source\\repos\\Annabel369\\Frozen_Elsa\\Frozen_Elsa.csproj",
         "projectName": "Frozen_Elsa",
-        "projectPath": "C:\\Users\\amaur\\Downloads\\Frozen_Elsa-main\\Frozen_Elsa-main\\Frozen_Elsa.csproj",
-        "packagesPath": "C:\\Users\\amaur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\amaur\\Downloads\\Frozen_Elsa-main\\Frozen_Elsa-main\\obj\\",
+        "projectPath": "C:\\Users\\Mickey\\source\\repos\\Annabel369\\Frozen_Elsa\\Frozen_Elsa.csproj",
+        "packagesPath": "C:\\Users\\Mickey\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mickey\\source\\repos\\Annabel369\\Frozen_Elsa\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\amaur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mickey\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -54,7 +55,7 @@
               "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "None",
               "target": "Package",
-              "version": "[1.0.255, )"
+              "version": "[1.0.337, )"
             },
             "Microsoft.CSharp": {
               "target": "Package",
@@ -63,6 +64,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[9.0.8, )"
             }
           },
           "imports": [
@@ -81,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
