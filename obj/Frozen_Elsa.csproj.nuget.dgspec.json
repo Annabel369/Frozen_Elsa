@@ -55,7 +55,7 @@
               "include": "Compile, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "None",
               "target": "Package",
-              "version": "[1.0.337, )"
+              "version": "[1.0.247, )"
             },
             "Microsoft.CSharp": {
               "target": "Package",
@@ -64,10 +64,6 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
-            },
-            "System.Text.Json": {
-              "target": "Package",
-              "version": "[9.0.8, )"
             }
           },
           "imports": [

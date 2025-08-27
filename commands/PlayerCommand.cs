@@ -1,9 +1,10 @@
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
-using CounterStrikeSharp.API.Modules.Admin;
 using CounterStrikeSharp.API.Core.Translations;
+using CounterStrikeSharp.API.Modules.Admin;
 using CounterStrikeSharp.API.Modules.Commands;
+using static CounterStrikeSharp.API.Core.Listeners;
 
 
 
@@ -24,15 +25,15 @@ public partial class Frozen_Elsa
 
         var callerName = player == null ? "Console" : player.PlayerName;
 
-                            var steamId = player?.AuthorizedSteamID?.SteamId64;
-                            if (!HasPermission(player, "Permission"))
-                            { 
-                                Server.ExecuteCommand($"css_addadmin {steamId} {callerName} @css/custom-permission 40 40000");
-                                player?.PrintToChat($"ADD VIP {callerName} @css/custom-permission 40 40000");
+        var steamId = player?.AuthorizedSteamID?.SteamId64;
+        if (!HasPermission(player, "Permission"))
+        {
+            Server.ExecuteCommand($"css_addadmin {steamId} {callerName} @css/custom-permission 40 40000");
+            player?.PrintToChat($"ADD VIP {callerName} @css/custom-permission 40 40000");
         }
-        else {player?.PrintToChat($"o Usuario {callerName} ja tem @css/custom-permission 40 40000");  return;} 
-                            
-        
+        else { player?.PrintToChat($"o Usuario {callerName} ja tem @css/custom-permission 40 40000"); return; }
+
+
         player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-ice.vsnd_c");
 
         Globals.SiteImage = "https://raw.githubusercontent.com/oqyh/cs2-MVP-Sounds-GoldKingZ/def5df4f333fc95da1e6de92a5c137fa5006ebad/Resources/9mm.gif";
@@ -58,7 +59,7 @@ public partial class Frozen_Elsa
         }
         else
         {
-            
+
             Server.ExecuteCommand($"bot_kick");
             Server.ExecuteCommand($"mp_roundtime 33");
         }
@@ -84,14 +85,14 @@ public partial class Frozen_Elsa
 
 
         var callerName = player == null ? "Console" : player.PlayerName;
-        
+
 
         //Server.ExecuteCommand($"css_freeze {callerName} 9");
         //player?.PrintToChat($"Freeze {callerName} 9 secord");
 
 
         //player?.ExecuteClientCommand($"play sounds/ui/counter_beep.vsnd");
-        
+
         player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-ice.vsnd_c");
 
         player?.GiveNamedItem("weapon_Decoy");
@@ -106,13 +107,13 @@ public partial class Frozen_Elsa
 
     [ConsoleCommand("css_h", "h")]// !h
     [RequiresPermissions("@css/root")]
-     public void OnCommandGiveHe(CCSPlayerController? player, CommandInfo commandInfo)
+    public void OnCommandGiveHe(CCSPlayerController? player, CommandInfo commandInfo)
     {
         if (player == null) return;
         if (!player.IsValid) return;
         //player?.PlayerPawn.Value?.LifeState == (byte)LifeState_t.LIFE_ALIVE;
         var callerName = player == null ? "Console" : player.PlayerName;
-        
+
         player?.ExecuteClientCommand($"play sounds/hesmokerds_sounds/holyshit.vsnd_c");
         player?.GiveNamedItem("weapon_hegrenade");
         Server.ExecuteCommand($"ammo_grenade_limit_total 5");
@@ -135,7 +136,7 @@ public partial class Frozen_Elsa
         if (!player.IsValid) return;
 
         var callerName = player == null ? "Console" : player.PlayerName;
-        
+
         player?.ExecuteClientCommand($"play sounds/hesmokerds_sounds/scream.vsnd_c");
         player?.GiveNamedItem("weapon_smokegrenade");
         Server.ExecuteCommand($"ammo_grenade_limit_total 5");
@@ -152,13 +153,13 @@ public partial class Frozen_Elsa
 
     [ConsoleCommand("css_m", "m")]// !m
     [RequiresPermissions("@css/root")]
-     public void OnCommandGiveMolotov(CCSPlayerController? player, CommandInfo commandInfo)
+    public void OnCommandGiveMolotov(CCSPlayerController? player, CommandInfo commandInfo)
     {
         if (player == null) return;
         if (!player.IsValid) return;
 
         var callerName = player == null ? "Console" : player.PlayerName;
-        
+
         player?.ExecuteClientCommand($"play sounds/hesmokerds_sounds/groovey.vsnd_c");
         player?.GiveNamedItem("weapon_molotov");
         Server.ExecuteCommand($"ammo_grenade_limit_total 5");
@@ -175,13 +176,13 @@ public partial class Frozen_Elsa
 
     [ConsoleCommand("css_f", "f")]// !f
     [RequiresPermissions("@css/root")]
-     public void OnCommandGiveBang(CCSPlayerController? player, CommandInfo commandInfo)
+    public void OnCommandGiveBang(CCSPlayerController? player, CommandInfo commandInfo)
     {
         if (player == null) return;
         if (!player.IsValid) return;
 
         var callerName = player == null ? "Console" : player.PlayerName;
-        
+
         player?.ExecuteClientCommand($"play sounds/hesmokerds_sounds/yeah.vsnd_c");
         player?.GiveNamedItem("weapon_flashbang");
         Server.ExecuteCommand($"ammo_grenade_limit_total 5");
@@ -296,10 +297,10 @@ public partial class Frozen_Elsa
     [CommandHelper(minArgs: 1, usage: "<#userid or name>", whoCanExecute: CommandUsage.CLIENT_AND_SERVER)]
     public void OnMariusCommand(CCSPlayerController? caller, CommandInfo command)
     {
-            var callerName = caller == null ? "Console" : caller.PlayerName;
-            if (command== null) return;
-            Server.ExecuteCommand($"spec_player {callerName}");
-            
+        var callerName = caller == null ? "Console" : caller.PlayerName;
+        if (command == null) return;
+        Server.ExecuteCommand($"spec_player {callerName}");
+
     }
 
     [ConsoleCommand("css_q", "q")]// !dc
@@ -317,7 +318,7 @@ public partial class Frozen_Elsa
     }
 
     // Create a glow effect for the player
-       
+
 
 
 }

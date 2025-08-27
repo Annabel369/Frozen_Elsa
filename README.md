@@ -3,49 +3,20 @@
 https://www.youtube.com/watch?v=MWYbYk941AM
 - **Simple playersmoke**
 
-- **Commands in Admin**
+- **Commands in chat**
 - 
       !q Server.ExecuteCommand("mp_warmup_end");
+      !u Create a glow effect for the player
       !dc decoy drop
-        !h buy Granete
-        !f buy Fashbang
-        !m buy Molotove
-        !s buy Smoke
-        !bot add or kick time 33 or 3
       !a test music
-      !vip (@css/custom-permission 40 40000) 
-
-  
-Edit file game\csgo\addons\counterstrikesharp\configs\admin_groups.exemple.json for admin_groups.json
-
-
-Edit file game\csgo\addons\counterstrikesharp\configs\admin_overrides.example.json for admin_overrides.json
-
-Steam ID64
-Command console Vip (@css/custom-permission):
-  
-        css_addadmin 76561198906880449 Katara @css/custom-permission 40 40000
-Steam ID64
-Command console Admin Master (@css/root):
-
-        css_addadmin 76561199737411180 Astral2 @css/root 99 99999
-
-
-
  
 
 
 ### Dependencies
-1- [Metamod:Source](https://www.sourcemm.net/downloads.php/?branch=master "Metamod:Source")
+[Metamod:Source](https://www.sourcemm.net/downloads.php/?branch=master "Metamod:Source")
+[CounterStrike Sharp](https://github.com/roflmuffin/CounterStrikeSharp "CounterStrike Sharp")
 
-
-2- [CounterStrike Sharp](https://github.com/roflmuffin/CounterStrikeSharp "CounterStrike Sharp")
-
-
-3- [CS2-SimpleAdmin](https://github.com/daffyyyy/CS2-SimpleAdmin "CS2-SimpleAdmin")
-
-
-4- [MultiAddonManager](https://github.com/Source2ZE/MultiAddonManager "MultiAddonManager") 
+[MultiAddonManager](https://github.com/Source2ZE/MultiAddonManager "MultiAddonManager") 
       
       // Extra addon settings, this is only executed once on plugin load
       

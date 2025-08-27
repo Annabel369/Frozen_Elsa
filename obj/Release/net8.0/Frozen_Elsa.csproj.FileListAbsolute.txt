@@ -1,0 +1,10 @@
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\bin\Release\net8.0\lang\en.json
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\bin\Release\net8.0\Frozen_Elsa.dll
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Release\net8.0\Frozen_Elsa.csproj.AssemblyReference.cache
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Release\net8.0\Frozen_Elsa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Release\net8.0\Frozen_Elsa.AssemblyInfoInputs.cache
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Release\net8.0\Frozen_Elsa.AssemblyInfo.cs
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Release\net8.0\Frozen_Elsa.csproj.CoreCompileInputs.cache
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Release\net8.0\Frozen_Elsa.dll
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Release\net8.0\refint\Frozen_Elsa.dll
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Release\net8.0\ref\Frozen_Elsa.dll

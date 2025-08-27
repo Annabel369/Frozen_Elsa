@@ -1,71 +1,95 @@
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
-using CounterStrikeSharp.API.Modules.Admin;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
-using CounterStrikeSharp.API.Core.Translations;
+using CounterStrikeSharp.API.Modules.Entities;
 using CounterStrikeSharp.API.Modules.Utils;
-using Frozen_Elsa.Repository;
-using System.Text.Json.Serialization;
+using CounterStrikeSharp.API.Modules.Timers;
+using CounterStrikeSharp.API.Modules.Commands;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
-
-
-
+using System.IO;
+using static CounterStrikeSharp.API.Core.Listeners;
+using CounterStrikeSharp.API.Modules.Admin;
+using CounterStrikeSharp.API.Core.Translations;
+using CounterStrikeSharp.API.Core.Attributes;
 
 
 namespace Frozen_Elsa;
 
-public partial class Frozen_Elsa : BasePlugin
-{ 
-    public override string ModuleName => "Frozen_Elsa";
-    public override string ModuleAuthor => "Annabel369";
-    public override string ModuleDescription => "Adds Grenades Special Effects.";
-    public override string ModuleVersion => "V. 2.2.0";
+public class Config : BasePluginConfig
+{
+    public bool SiteImage { get; set; } = true;
+
+    [JsonPropertyName("show-player-counter")]
+    public bool PlayerCounter { get; set; } = true;
+
+    [JsonPropertyName("ConfigVersion")]
+    public override int Version { get; set; } = 2;
 
     public bool IsHooked { get; set; }
 
-    public System.Numerics.Vector3 ForwardVector { get; set; }
-    public byte LIFE_ALIVE { get; private set; }
-    private static readonly Vector VectorZero = new Vector(0, 0, 0);
-    private static readonly QAngle RotationZero = new QAngle(0, 0, 0);
-    private bool shouldShowImage = false;
+    public System.Numerics.Vector3 ForwardVector { get; set; } = new(0, 0, 0);
+}
+
+public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
+{
+    public override string ModuleName => "Frozen_Elsa";
+    public override string ModuleAuthor => "Astral + Copilot";
+    public override string ModuleDescription => "Adds Grenades Special Effects with Frozen-style magic.";
+    public override string ModuleVersion => "V. 4.0.4";
+
+    public required Config Config { get; set; }
     public CBeam? BeamEntity { get; set; }
-    //private bool isCatAnimationOn = false;//on or off 
-    public bool bombsiteAnnouncer;
+    private readonly Random _random = new();
+    private bool shouldShowImage = false;
+
+    private static readonly Vector VectorZero = new(0, 0, 0);
+    private static readonly QAngle RotationZero = new(0, 0, 0);
 
     public override void Load(bool hotReload)
     {
+        EnsureConfigFileExists();
         RegisterListener<Listeners.OnTick>(OnTick);
+        base.Load(hotReload);
     }
 
-
-
-
-    [GameEventHandler]
-    public HookResult OnRoundEnd(EventPlayerDeath @event, GameEventInfo info)
+    public void OnConfigParsed(Config config)
     {
-        bombsiteAnnouncer = false;
-            // sphere ent
-            foreach (var player in Utilities.FindAllEntitiesByDesignerName<CCSPlayerController>("cs_player_controller"))
-            {
-
-                if (player != null && player.IsValid)//&& !player.IsBot
-                {
-                    if (player.Team == CsTeam.Terrorist)
-                    {
-                        if (player?.PlayerPawn != null && player?.PlayerPawn.Value != null)
-                        {
-                            player.PlayerPawn.Value.Render = Color.FromArgb(255, 255, 255);//defalt
-                        }
-                    }
-                }
-            }
-
-        return HookResult.Continue;
+        Config = config;
     }
 
+    private void EnsureConfigFileExists()
+    {
+        if (string.IsNullOrEmpty(ModuleDirectory))
+        {
+            Console.WriteLine("[Frozen_Elsa] ModuleDirectory is not initialized.");
+            return;
+        }
+
+        string configPath = Path.Combine(ModuleDirectory, $"{ModuleName}.json");
+
+        try
+        {
+            if (!File.Exists(configPath) || string.IsNullOrWhiteSpace(File.ReadAllText(configPath)))
+            {
+                var defaultConfig = new Config();
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                string json = JsonSerializer.Serialize(defaultConfig, options);
+                File.WriteAllText(configPath, json);
+                Console.WriteLine($"[Frozen_Elsa] Default config file created at: {configPath}");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"[Frozen_Elsa] Failed to write config: {ex.Message}");
+        }
+    }
 
     public void OnTick()
-    {    
+    {
         string gifUrl = Globals.SiteImage;
 
         if (shouldShowImage)
@@ -74,13 +98,158 @@ public partial class Frozen_Elsa : BasePlugin
             {
                 if (player != null && player.IsValid)
                 {
-                    player.PrintToCenterHtml($"<img src=\"{gifUrl}\">",10);
-                }   
+                    player.PrintToCenterHtml($"<img src=\"{gifUrl}\">", 10);
+                }
             }
         }
     }
 
-private bool HasPermission(CCSPlayerController? player, string id)
+    [ConsoleCommand("frozen_activate")]
+    public void OnFrozenActivate(CCSPlayerController player, CommandInfo info)
+    {
+        player.PrintToChat($"❄️ {player.PlayerName} invocou o poder da Elsa!");
+        player.ExecuteClientCommand("play sounds/frozen_music2/frozen-go.vsnd_c");
+
+        var origin = player.Pawn?.Value?.AbsOrigin ?? VectorZero;
+        var sphere = new SphereEntity(origin, 250);
+        DrawLaserBetween(sphere.circleInnerPoints, sphere.circleOutterPoints, 6);
+
+        FreezeEnemiesAt(origin, 300);
+    }
+
+    [GameEventHandler]
+    public HookResult OnDecoyStarted(EventDecoyStarted @event, GameEventInfo info)
+    {
+        var decoyOrigin = new Vector(@event.X, @event.Y, @event.Z);
+        foreach (var player in Utilities.FindAllEntitiesByDesignerName<CCSPlayerController>("cs_player_controller"))
+        {
+            if (player?.IsValid == true)
+            {
+                player.PrintToChat("❄️ Uma granada decoy liberou magia congelante!");
+                player.ExecuteClientCommand("play sounds/frozen_music2/frozen-go.vsnd_c");
+            }
+        }
+
+        var sphereEntity = new SphereEntity(decoyOrigin, 200);
+        DrawLaserBetween(sphereEntity.circleInnerPoints, sphereEntity.circleOutterPoints, 5);
+
+        FreezeEnemiesAt(decoyOrigin, 300);
+        return HookResult.Continue;
+    }
+
+    private void FreezeEnemiesAt(Vector origin, float radius)
+    {
+        foreach (var player in Utilities.FindAllEntitiesByDesignerName<CCSPlayerController>("cs_player_controller"))
+        {
+            if (player?.IsValid != true || player.Team == CsTeam.Terrorist)
+                continue;
+
+            var targetOrigin = player.Pawn?.Value?.AbsOrigin ?? VectorZero;
+            if ((origin - targetOrigin).Length() <= radius)
+            {
+                player.PrintToChat("💙 Você foi congelado pela magia da Frozen!");
+                player.ExecuteClientCommand("play sounds/frozen_music2/freeze.vsnd_c");
+
+                var pawn = player.Pawn?.Value;
+                if (pawn != null)
+                {
+                    pawn.Render = Color.LightBlue;
+                    pawn.Teleport(null, null, VectorZero);
+
+                    AddTimer(3.0f, () =>
+                    {
+                        pawn.Render = Color.White;
+                        player.ExecuteClientCommand("play sounds/frozen_music2/unfreeze.vsnd_c");
+                        player.PrintToChat("🧊 Você foi descongelado!");
+                    });
+                }
+            }
+        }
+    }
+
+    [GameEventHandler(HookMode.Pre)]
+    public HookResult BulletImpact(EventBulletImpact @event, GameEventInfo info)
+    {
+        var player = @event.Userid;
+        var pawn = player?.Pawn?.Value;
+
+        if (pawn == null || player == null || !HasPermission(player, "Permission"))
+            return HookResult.Continue;
+
+        var playerPos = pawn.AbsOrigin;
+        if (playerPos == null)
+            return HookResult.Continue;
+
+        var bulletOrigin = GetEyePosition(player);
+        var bulletDestination = new Vector(@event.X, @event.Y, @event.Z);
+
+        var color = RainbowColors[_random.Next(RainbowColors.Length)];
+
+        DrawLaserBetween(bulletOrigin, bulletDestination, color, 0.2f, 1.0f);
+        return HookResult.Continue;
+    }
+
+    [GameEventHandler]
+    public HookResult PlayerDeath(EventPlayerDeath @event, GameEventInfo info)
+    {
+        if (@event.Userid == null || @event.Attacker == null)
+            return HookResult.Continue;
+
+        if (HasPermission(@event.Attacker, "Permission"))
+            CreateEffect("killeffect", @event.Attacker, @event.Userid.PlayerPawn.Value!.AbsOrigin!, "particles/explosions_fx/explosion_basic.vpcf");
+
+        return HookResult.Continue;
+    }
+
+    [GameEventHandler]
+    public HookResult PlayerHurt(EventPlayerHurt @event, GameEventInfo info)
+    {
+        if (@event.Userid == null || @event.Attacker == null)
+            return HookResult.Continue;
+
+        if (HasPermission(@event.Attacker, "Permission"))
+            CreateEffect("hiteffect", @event.Attacker, @event.Userid.PlayerPawn.Value!.AbsOrigin!, "particles/weapons/cs_weapon_fx/weapon_taser_glow.vpcf");
+
+        return HookResult.Continue;
+    }
+
+    private void DrawLaserBetween(Vector[] startPos, Vector[] endPos, float duration)
+    {
+        for (int i = 0; i < endPos.Length; i++)
+        {
+            var beam = Utilities.CreateEntityByName<CBeam>("beam");
+            if (beam == null)
+                continue;
+
+            beam.Render = Color.Aqua;
+            beam.Width = 2.0f;
+            beam.Teleport(startPos[i], RotationZero, VectorZero);
+            beam.Teleport(endPos[i], RotationZero, VectorZero);
+            beam.DispatchSpawn();
+            AddTimer(duration, () => beam.Remove());
+        }
+    }
+
+    public (int, CBeam?) DrawLaserBetween(Vector startPos, Vector endPos, Color color, float life, float width)
+    {
+        var beam = Utilities.CreateEntityByName<CBeam>("beam");
+        if (beam == null)
+            return (-1, null);
+
+        beam.Render = color;
+        //beam.Width = width / 2.0f;
+        beam.Width = width;
+        beam.Teleport(startPos, RotationZero, VectorZero);
+        beam.Teleport(endPos, RotationZero, VectorZero);
+        beam.DispatchSpawn();
+        AddTimer(life, () => beam.Remove());
+
+        BeamEntity = beam;
+        return ((int)beam.Index, beam);
+    }
+
+    // Antigas Funções
+    private bool HasPermission(CCSPlayerController? player, string id)
     {
         string permission = string.Empty;
         string team = string.Empty;
@@ -89,7 +258,7 @@ private bool HasPermission(CCSPlayerController? player, string id)
         {
             case "Permission":
                 permission = "@css/custom-permission";
-                team = "all";// t or ct or all
+                team = "all";
                 break;
             case "Permission2":
                 permission = "@css/custom-permission2";
@@ -98,18 +267,17 @@ private bool HasPermission(CCSPlayerController? player, string id)
         }
 
         return (string.IsNullOrEmpty(permission) || AdminManager.PlayerHasPermissions(player, permission)) &&
-               isTeamValid(player, team.ToLower());
+               IsTeamValid(player, team.ToLower());
     }
 
-     public bool isTeamValid(CCSPlayerController? player, string team)
+    private bool IsTeamValid(CCSPlayerController? player, string team)
     {
         return (team == "t" || team == "terrorist") && player?.Team == CsTeam.Terrorist ||
                (team == "ct" || team == "counterterrorist") && player?.Team == CsTeam.CounterTerrorist ||
                string.IsNullOrEmpty(team) || team == "both" || team == "all";
     }
 
-
- private void CreateEffect(string effectName, CCSPlayerController player, Vector Position, string effectFile, string colorValue = "", float width = 0, float lifetime = 1.0f)
+    private void CreateEffect(string effectName, CCSPlayerController player, Vector Position, string effectFile, string colorValue = "", float width = 0, float lifetime = 1.0f)
     {
         Vector bulletDestination = new Vector(Position.X, Position.Y, Position.Z);
 
@@ -168,25 +336,15 @@ private bool HasPermission(CCSPlayerController? player, string id)
             AddTimer(1.0f, particle.Remove);
         }
     }
-public static Vector GetEyePosition(CCSPlayerController player)
+
+    public static Vector GetEyePosition(CCSPlayerController player)
     {
         Vector absorigin = player.PlayerPawn.Value!.AbsOrigin!;
         CPlayer_CameraServices camera = player.PlayerPawn.Value!.CameraServices!;
 
         return new Vector(absorigin.X, absorigin.Y, absorigin.Z + camera.OldPlayerViewOffsetZ);
     }
-
-    public static QAngle GetNormalizedAngles(CCSPlayerController player)
-    {
-        QAngle AbsRotation = player.PlayerPawn.Value!.AbsRotation!;
-        return new QAngle(
-            AbsRotation.X,
-            (float)Math.Round(AbsRotation.Y / 10.0) * 10,
-            AbsRotation.Z
-        );
-    }
-
-private int colorIndex = 0;
+    private int colorIndex = 0;
 
     private Color ParseColor(string colorValue)
     {
@@ -207,167 +365,13 @@ private int colorIndex = 0;
         return Color.FromArgb(255, 255, 255, 255);
     }
 
-Color[] RainbowColors = {
-        
-        Color.FromArgb(255, 255, 0, 0),     // Red
-        Color.FromArgb(255, 0, 255, 0),     // Green
+    Color[] RainbowColors = {
+        Color.FromArgb(255, 255, 0, 0),      // Red
+        Color.FromArgb(255, 0, 255, 0),      // Green
         Color.FromArgb(255, 0, 0, 255),      // Blue
-        Color.FromArgb(255, 0, 255, 255),   // Cyan
-        Color.FromArgb(255, 255, 255, 0),   // Yellow
+        Color.FromArgb(255, 0, 255, 255),    // Cyan
+        Color.FromArgb(255, 255, 255, 0),    // Yellow
         Color.FromArgb(255, 250, 250, 250), // White
-        Color.FromArgb(255, 255, 0, 255),   // Magenta
+        Color.FromArgb(255, 255, 0, 255),    // Magenta
     };
-
-
-    [GameEventHandler]
-    public HookResult OnDecoyStarted(EventDecoyStarted @event, GameEventInfo info)
-    {
-        //CCSPlayerController player = @event.Userid;
-
-        
-       if (shouldShowImage)
-        {
-            foreach (CCSPlayerController player in Utilities.GetPlayers())
-            {
-                if (player != null && player.IsValid)
-                {
-                    player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-go.vsnd_c");
-                     SphereEntity sphereEntity = new SphereEntity(new Vector(@event.X, @event.Y, @event.Z), 200);
-                     DrawLaserBetween(sphereEntity.circleInnerPoints, sphereEntity.circleOutterPoints, 5);
-                    
-                }   
-            }
-        }   
-
-        return HookResult.Continue;
-    }
-
-    
-
-    [GameEventHandler]
-    public HookResult PlayerDeath(EventPlayerDeath @event, GameEventInfo info)
-    {
-        if (@event.Userid == null || @event.Attacker == null)
-            return HookResult.Continue;
-        //if (!shouldShowImage)return HookResult.Continue; //kabooo
-
-        if (HasPermission(@event.Attacker, "Permission"))
-        CreateEffect("killeffect", @event.Attacker, @event.Userid.PlayerPawn.Value!.AbsOrigin!, "particles/explosions_fx/explosion_basic.vpcf");
-
-        return HookResult.Continue;
-    }
-
-   [GameEventHandler]
-    public HookResult PlayerHurt(EventPlayerHurt @event, GameEventInfo info)
-    {
-        if (@event.Userid == null || @event.Attacker == null)
-            return HookResult.Continue;
-
-            if (HasPermission(@event.Attacker, "Permission"))
-            CreateEffect("hiteffect", @event.Attacker, @event.Userid.PlayerPawn.Value!.AbsOrigin!, "particles/weapons/cs_weapon_fx/weapon_taser_glow.vpcf");
-
-        return HookResult.Continue;
-    }
-
-    public (int, CBeam?) DrawLaserBetween(Vector startPos, Vector endPos, Color color, float life, float width)
-    {
-        if (startPos == null || endPos == null)
-        {
-            return (-1, null);
-        }
-
-        CBeam? beam = Utilities.CreateEntityByName<CBeam>("beam");
-
-        if (beam == null)
-        {
-            return (-1, null);
-        }
-
-        beam.Render = color;
-        beam.Width = width / 2.0f;
-
-        beam.Teleport(startPos, RotationZero, VectorZero);
-        beam.EndPos.X = endPos.X;
-        beam.EndPos.Y = endPos.Y;
-        beam.EndPos.Z = endPos.Z;
-        beam.DispatchSpawn();
-
-        AddTimer(life, () => { beam.Remove(); });
-
-        return ((int)beam.Index, beam);
-    }
-
-    [GameEventHandler(HookMode.Pre)]
-    public HookResult BulletImpact(EventBulletImpact @event, GameEventInfo info)
-    {
-        CCSPlayerController? player = @event.Userid;
-
-        Random random = new Random();
-        int NumberRandom = random.Next(1, 8);// Random 1 to 7
-
-        Vector? PlayerPosition = player?.Pawn?.Value?.AbsOrigin;
-        Vector? BulletOrigin = new Vector(PlayerPosition?.X, PlayerPosition?.Y, PlayerPosition?.Z + 57);
-        Vector? bulletDestination = new Vector(@event.X, @event.Y, @event.Z);
-
-        ///if (Config.Tracer.Enable && HasPermission(player, "tracer"))
-
-        if (player?.TeamNum == 3 && HasPermission(player, "Permission"))
-        {
-            DrawLaserBetween(BulletOrigin, bulletDestination, RainbowColors[NumberRandom], 0.2f, 1.0f);//default Color.Blue or RGB RainbowColors[NumberRandom]
-        }
-        else if (player?.TeamNum == 2 && HasPermission(player, "Permission"))
-        {
-            DrawLaserBetween(BulletOrigin, bulletDestination, RainbowColors[NumberRandom], 0.2f, 1.0f);//default Color.Red
-        }
-
-        return HookResult.Continue;
-    }
-
-private void DrawLaserBetween(Vector[] startPos, Vector[] endPos, float duration)
-    {
-
-        for (int i = 0; i < endPos.Length; i++)
-        {
-
-            CBeam? beam = Utilities.CreateEntityByName<CBeam>("beam");
-
-            //var pawn = player?.PlayerPawn.Get();
-            //var activeWeapon = pawn?.WeaponServices?.ActiveWeapon.Get();
-
-
-            if (beam == null)
-            {
-                return;
-            }
-            
-                beam.Render = Color.Blue;
-                beam.Width = 2.0f;
-
-                beam.Teleport(startPos[i], new QAngle(0), new Vector(0, 0, 0));
-                beam.EndPos.X = endPos[i].X;
-                beam.EndPos.Y = endPos[i].Y;
-                beam.EndPos.Z = endPos[i].Z;
-
-
-
-            beam.DispatchSpawn();
-            AddTimer(duration, () => { beam.Remove(); });
-
-        }
-
-
-    }
-
-
-
-    
-
-
-
-
-
-
-
-
-
 }
