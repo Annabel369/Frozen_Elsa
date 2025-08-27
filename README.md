@@ -43,7 +43,7 @@
 
 [MultiAddonManager](https://github.com/Source2ZE/MultiAddonManager "MultiAddonManager") 
 
-[AdminControl]([https://github.com/astral3693/cs2_noscopenotifier "cs2_noscopenotifier](https://github.com/Annabel369/AdminControl)")
+[AdminControl](https://github.com/Annabel369/AdminControl "AdminControl")
       
       // Extra addon settings, this is only executed once on plugin load
       
