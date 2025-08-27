@@ -46,7 +46,7 @@ https://www.youtube.com/watch?v=MWYbYk941AM
       
       mm_extra_addons 				"3294889768,3244596709,3241525034"
 
-[cs2_noscopenotifier](https://github.com/astral3693/cs2_noscopenotifier "cs2_noscopenotifier")
+[AdminControl]([https://github.com/astral3693/cs2_noscopenotifier "cs2_noscopenotifier](https://github.com/Annabel369/AdminControl)")
 
 
 ### Installation
