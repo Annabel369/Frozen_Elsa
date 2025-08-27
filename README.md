@@ -6,9 +6,19 @@ https://www.youtube.com/watch?v=MWYbYk941AM
 - **Commands in chat**
 - 
       !q Server.ExecuteCommand("mp_warmup_end");
-      !u Create a glow effect for the player
+        !erick music custom text
+        !ela music custom text
+        !lula music custom text
+        !gira music custom text
+  
+   !svip Add vip 
+  
       !dc decoy drop
+      !m molotv
+      !s Smoke
+      !g grened
       !a test music
+  
  
 
 
@@ -20,7 +30,7 @@ https://www.youtube.com/watch?v=MWYbYk941AM
       
       // Extra addon settings, this is only executed once on plugin load
       
-      mm_extra_addons 				"3230015783,3163629484,3244596709,3241525034,3168265293"
+      mm_extra_addons 				"3294889768,3244596709,3241525034"
 
 [cs2_noscopenotifier](https://github.com/astral3693/cs2_noscopenotifier "cs2_noscopenotifier")
 
