@@ -8,3 +8,4 @@ C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Release\net8.0\Frozen_El
 C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Release\net8.0\Frozen_Elsa.dll
 C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Release\net8.0\refint\Frozen_Elsa.dll
 C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Release\net8.0\ref\Frozen_Elsa.dll
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\bin\Release\net8.0\lang\pt.json

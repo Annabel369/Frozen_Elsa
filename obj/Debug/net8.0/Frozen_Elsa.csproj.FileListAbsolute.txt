@@ -50,3 +50,4 @@ C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa
 C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Debug\net8.0\refint\Frozen_Elsa.dll
 C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Debug\net8.0\Frozen_Elsa.pdb
 C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\obj\Debug\net8.0\ref\Frozen_Elsa.dll
+C:\Users\Mickey\source\repos\Annabel369\Frozen_Elsa\bin\Debug\net8.0\lang\pt.json

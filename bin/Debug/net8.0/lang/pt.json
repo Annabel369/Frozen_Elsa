@@ -1,0 +1,11 @@
+﻿{
+  "Frozen_Elsa.PlayerFrozen": "💙 Você foi congelado pela magia da Frozen!",
+  "Frozen_Elsa.Unfrozen": "🧊 Você foi descongelado!",
+  "Frozen_Elsa.DecoyActivated": "❄️ Uma granada decoy liberou magia congelante!",
+  "Frozen_Elsa.PowerInvoked": "❄️ {0} invocou o poder da Elsa!",
+  "Frozen_Elsa.OnlinePlayers": "Online: {0}",
+  "Frozen_Elsa.NoPermission": "Você não tem permissão para usar este comando.",
+  "Frozen_Elsa.PlayerBanned": "[Frozen_Elsa] O jogador {0} foi banido com sucesso.",
+  "Frozen_Elsa.AdminGiven": "[Frozen_Elsa] Admin concedido para {0}.",
+  "Frozen_Elsa.AdminRemoved": "[Frozen_Elsa] Admin de {0} foi removido."
+}

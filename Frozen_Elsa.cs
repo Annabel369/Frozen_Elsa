@@ -1,29 +1,33 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-using CounterStrikeSharp.API;
+﻿using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
+using CounterStrikeSharp.API.Core.Attributes;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
-using CounterStrikeSharp.API.Modules.Entities;
-using CounterStrikeSharp.API.Modules.Utils;
-using CounterStrikeSharp.API.Modules.Timers;
+using CounterStrikeSharp.API.Core.Translations;
+using CounterStrikeSharp.API.Modules.Admin;
 using CounterStrikeSharp.API.Modules.Commands;
+using CounterStrikeSharp.API.Modules.Entities;
+using CounterStrikeSharp.API.Modules.Timers;
+using CounterStrikeSharp.API.Modules.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
+using System.Linq;
+using System.Numerics;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using static CounterStrikeSharp.API.Core.Listeners;
-using CounterStrikeSharp.API.Modules.Admin;
-using CounterStrikeSharp.API.Core.Translations;
-using CounterStrikeSharp.API.Core.Attributes;
-
+using Vector = CounterStrikeSharp.API.Modules.Utils.Vector;
+using QAngle = CounterStrikeSharp.API.Modules.Utils.QAngle;
 
 namespace Frozen_Elsa;
 
 public class Config : BasePluginConfig
 {
     public bool SiteImage { get; set; } = true;
-
-    [JsonPropertyName("show-player-counter")]
+    public string SmokeColorT { get; set; } = "167 255 167"; // Lime Green
+    public string SmokeColorCT { get; set; } = "0 0 255"; // Azul
     public bool PlayerCounter { get; set; } = true;
 
     [JsonPropertyName("ConfigVersion")]
@@ -39,7 +43,7 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
     public override string ModuleName => "Frozen_Elsa";
     public override string ModuleAuthor => "Astral + Copilot";
     public override string ModuleDescription => "Adds Grenades Special Effects with Frozen-style magic.";
-    public override string ModuleVersion => "V. 4.0.4";
+    public override string ModuleVersion => "V. 5.0.5";
 
     public required Config Config { get; set; }
     public CBeam? BeamEntity { get; set; }
@@ -52,8 +56,12 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
     public override void Load(bool hotReload)
     {
         EnsureConfigFileExists();
+
+        AddCommand("css_frozen_activate", "Invokes Frozen's power to freeze enemies", OnFrozenActivate);
+        AddCommand("css_adm", "Abre o menu de administração.", OnAdmCommand);
+
         RegisterListener<Listeners.OnTick>(OnTick);
-        base.Load(hotReload);
+        RegisterListener<Listeners.OnEntityCreated>(entity => OnEntityCreated(entity));
     }
 
     public void OnConfigParsed(Config config)
@@ -90,24 +98,34 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
 
     public void OnTick()
     {
-        string gifUrl = Globals.SiteImage;
-
         if (shouldShowImage)
         {
             foreach (CCSPlayerController player in Utilities.GetPlayers())
             {
                 if (player != null && player.IsValid)
                 {
-                    player.PrintToCenterHtml($"<img src=\"{gifUrl}\">", 10);
+                    player.PrintToCenterHtml($"<img src=\"{Globals.SiteImage}\">", 10);
                 }
             }
         }
+
+        if (Config.PlayerCounter)
+        {
+            int playerCount = Utilities.GetPlayers().Count();
+            //Server.PrintToChatAll(Localizer["Frozen_Elsa.OnlinePlayers", playerCount]);
+        }
     }
 
-    [ConsoleCommand("frozen_activate")]
-    public void OnFrozenActivate(CCSPlayerController player, CommandInfo info)
+    [ConsoleCommand("css_frozen_activate")]
+    public void OnFrozenActivate(CCSPlayerController? player, CommandInfo info)
     {
-        player.PrintToChat($"❄️ {player.PlayerName} invocou o poder da Elsa!");
+        if (player == null)
+        {
+            info.ReplyToCommand("Comando só pode ser usado por um jogador.");
+            return;
+        }
+
+        player.PrintToChat(Localizer["Frozen_Elsa.PowerInvoked", player.PlayerName]);
         player.ExecuteClientCommand("play sounds/frozen_music2/frozen-go.vsnd_c");
 
         var origin = player.Pawn?.Value?.AbsOrigin ?? VectorZero;
@@ -117,15 +135,26 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
         FreezeEnemiesAt(origin, 300);
     }
 
+    [ConsoleCommand("css_adm")]
+    public void OnAdmCommand(CCSPlayerController? player, CommandInfo info)
+    {
+        if (player is null)
+        {
+            info.ReplyToCommand("Comando só pode ser usado por um jogador.");
+            return;
+        }
+        Frozen_ElsaHelpers.ShowMainMenu(player, this);
+    }
+
     [GameEventHandler]
     public HookResult OnDecoyStarted(EventDecoyStarted @event, GameEventInfo info)
     {
         var decoyOrigin = new Vector(@event.X, @event.Y, @event.Z);
-        foreach (var player in Utilities.FindAllEntitiesByDesignerName<CCSPlayerController>("cs_player_controller"))
+        foreach (var player in Utilities.GetPlayers())
         {
             if (player?.IsValid == true)
             {
-                player.PrintToChat("❄️ Uma granada decoy liberou magia congelante!");
+                player.PrintToChat(Localizer["Frozen_Elsa.DecoyActivated"]);
                 player.ExecuteClientCommand("play sounds/frozen_music2/frozen-go.vsnd_c");
             }
         }
@@ -139,7 +168,7 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
 
     private void FreezeEnemiesAt(Vector origin, float radius)
     {
-        foreach (var player in Utilities.FindAllEntitiesByDesignerName<CCSPlayerController>("cs_player_controller"))
+        foreach (var player in Utilities.GetPlayers())
         {
             if (player?.IsValid != true || player.Team == CsTeam.Terrorist)
                 continue;
@@ -147,7 +176,7 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
             var targetOrigin = player.Pawn?.Value?.AbsOrigin ?? VectorZero;
             if ((origin - targetOrigin).Length() <= radius)
             {
-                player.PrintToChat("💙 Você foi congelado pela magia da Frozen!");
+                player.PrintToChat(Localizer["Frozen_Elsa.PlayerFrozen"]);
                 player.ExecuteClientCommand("play sounds/frozen_music2/freeze.vsnd_c");
 
                 var pawn = player.Pawn?.Value;
@@ -160,7 +189,7 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
                     {
                         pawn.Render = Color.White;
                         player.ExecuteClientCommand("play sounds/frozen_music2/unfreeze.vsnd_c");
-                        player.PrintToChat("🧊 Você foi descongelado!");
+                        player.PrintToChat(Localizer["Frozen_Elsa.Unfrozen"]);
                     });
                 }
             }
@@ -213,6 +242,109 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
         return HookResult.Continue;
     }
 
+    private void OnEntityCreated(CEntityInstance entity)
+
+    {
+
+        if (entity.DesignerName != "smokegrenade_projectile")
+
+        {
+            return;
+        }
+
+
+        var grenade = new CSmokeGrenadeProjectile(entity.Handle);
+
+
+
+        if (grenade.Handle == IntPtr.Zero)
+
+        {
+
+            return;
+
+        }
+
+
+
+        Server.NextFrame(() =>
+
+        {
+
+            var player = grenade.Thrower.Value?.Controller.Value;
+
+            if (player == null)
+
+            {
+                return;
+            }
+
+
+            var team = (CsTeam)player.TeamNum;
+
+            string colorString;
+
+
+
+            if (team == CsTeam.Terrorist)
+
+            {
+
+                colorString = Config.SmokeColorT;
+
+            }
+
+            else if (team == CsTeam.CounterTerrorist)
+
+            {
+
+                colorString = Config.SmokeColorCT;
+
+            }
+
+            else
+
+            {
+
+                colorString = "255 255 255";
+
+            }
+
+
+
+            var colors = colorString.Split(' ');
+
+            if (colors.Length == 3 &&
+
+              float.TryParse(colors[0], NumberStyles.Float, CultureInfo.InvariantCulture, out float r) &&
+              float.TryParse(colors[1], NumberStyles.Float, CultureInfo.InvariantCulture, out float g) &&
+              float.TryParse(colors[2], NumberStyles.Float, CultureInfo.InvariantCulture, out float b))
+
+            {
+
+                grenade.SmokeColor.X = r;
+                grenade.SmokeColor.Y = g;
+                grenade.SmokeColor.Z = b;
+
+            }
+
+            else
+
+            {
+
+                grenade.SmokeColor.X = 255;
+
+                grenade.SmokeColor.Y = 255;
+
+                grenade.SmokeColor.Z = 255;
+
+            }
+
+        });
+
+    }
+
+    // Funções de drawing e efeitos
     private void DrawLaserBetween(Vector[] startPos, Vector[] endPos, float duration)
     {
         for (int i = 0; i < endPos.Length; i++)
@@ -237,7 +369,6 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
             return (-1, null);
 
         beam.Render = color;
-        //beam.Width = width / 2.0f;
         beam.Width = width;
         beam.Teleport(startPos, RotationZero, VectorZero);
         beam.Teleport(endPos, RotationZero, VectorZero);
@@ -248,7 +379,6 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
         return ((int)beam.Index, beam);
     }
 
-    // Antigas Funções
     private bool HasPermission(CCSPlayerController? player, string id)
     {
         string permission = string.Empty;
@@ -315,10 +445,7 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
 
             tracer.Teleport(Position);
 
-            tracer.EndPos.X = bulletDestination.X;
-            tracer.EndPos.Y = bulletDestination.Y;
-            tracer.EndPos.Z = bulletDestination.Z;
-
+            tracer.Teleport(Position, RotationZero, bulletDestination);
             Utilities.SetStateChanged(tracer, "CBeam", "m_vecEndPos");
 
             AddTimer(lifetime, tracer.Remove);
@@ -374,4 +501,8 @@ public partial class Frozen_Elsa : BasePlugin, IPluginConfig<Config>
         Color.FromArgb(255, 250, 250, 250), // White
         Color.FromArgb(255, 255, 0, 255),    // Magenta
     };
+
+    // Note: As funções de comando e a variável 'isCatAnimationOn'
+    // devem estar no arquivo PlayerCommand.cs para evitar conflitos de nome.
+    // ...
 }
