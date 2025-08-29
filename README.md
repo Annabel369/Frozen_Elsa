@@ -8,7 +8,9 @@ https://www.youtube.com/watch?v=MWYbYk941AM
       !q Server.ExecuteCommand("mp_warmup_end");
       !u Create a glow effect for the player
       !dc decoy drop
-      !a test music
+      !a !lula !erick !ela !gira ( test music )
+      !s smoke (conm efeitos de localizacao)
+      !m molotove (conm efeitos de localizacao)
  
 
 
