@@ -11,7 +11,6 @@ https://www.youtube.com/watch?v=MWYbYk941AM
       !a !lula !erick !ela !gira ( test music )
       !s smoke (conm efeitos de localizacao)
       !m molotove (conm efeitos de localizacao)
-      !bot ( + or - nivel 10 or 0)
  
 
 

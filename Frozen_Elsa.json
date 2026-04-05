@@ -1,0 +1,9 @@
+{
+  "SiteImage": true,
+  "SmokeColorT": "0 128 0",
+  "SmokeColorCT": "0 0 255",
+  "PlayerCounter": true,
+  "ConfigVersion": 2,
+  "IsHooked": false,
+  "ForwardVector": {}
+}

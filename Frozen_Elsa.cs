@@ -1,4 +1,4 @@
-﻿using CounterStrikeSharp.API;
+using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Core.Attributes;
 using CounterStrikeSharp.API.Core.Attributes.Registration;
@@ -26,7 +26,7 @@ namespace Frozen_Elsa;
 public class Config : BasePluginConfig
 {
     public bool SiteImage { get; set; } = true;
-    public string SmokeColorT { get; set; } = "167 255 167"; // Lime Green
+    public string SmokeColorT { get; set; } = "0 255 0"; // Verde Vibrante Puro
     public string SmokeColorCT { get; set; } = "0 0 255"; // Azul
     public bool PlayerCounter { get; set; } = true;
 
