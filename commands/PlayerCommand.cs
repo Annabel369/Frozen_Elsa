@@ -37,7 +37,7 @@ public partial class Frozen_Elsa
         player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-ice.vsnd_c");
 
         Globals.SiteImage = "https://raw.githubusercontent.com/oqyh/cs2-MVP-Sounds-GoldKingZ/def5df4f333fc95da1e6de92a5c137fa5006ebad/Resources/9mm.gif";
-        RegisterListener<Listeners.OnTick>(OnTick);
+        // RegisterListener<Listeners.OnTick>(OnTick); (remover - já registrado no Load)
         shouldShowImage = true;
         AddTimer(7, () =>
         {
@@ -68,7 +68,7 @@ public partial class Frozen_Elsa
         player?.ExecuteClientCommand($"play sounds/frozen_music2/frozen-ice.vsnd_c");
 
         Globals.SiteImage = "https://raw.githubusercontent.com/oqyh/cs2-MVP-Sounds-GoldKingZ/def5df4f333fc95da1e6de92a5c137fa5006ebad/Resources/9mm.gif";
-        RegisterListener<Listeners.OnTick>(OnTick);
+        // RegisterListener<Listeners.OnTick>(OnTick); (remover - já registrado no Load)
         shouldShowImage = true;
         AddTimer(7, () =>
         {
@@ -97,7 +97,7 @@ public partial class Frozen_Elsa
 
         player?.GiveNamedItem("weapon_Decoy");
         Globals.SiteImage = "https://raw.githubusercontent.com/oqyh/cs2-MVP-Sounds-GoldKingZ/def5df4f333fc95da1e6de92a5c137fa5006ebad/Resources/9mm.gif";
-        RegisterListener<Listeners.OnTick>(OnTick);
+        // RegisterListener<Listeners.OnTick>(OnTick); (remover - já registrado no Load)
         shouldShowImage = true;
         AddTimer(7, () =>
         {
@@ -120,7 +120,7 @@ public partial class Frozen_Elsa
         Server.ExecuteCommand($"sv_grenade_trajectory_prac_pipreview 1");
 
         Globals.SiteImage = "https://raw.githubusercontent.com/oqyh/cs2-MVP-Sounds-GoldKingZ/main/Resources/skull1.gif";
-        RegisterListener<Listeners.OnTick>(OnTick);
+        // RegisterListener<Listeners.OnTick>(OnTick); (remover - já registrado no Load)
         shouldShowImage = true;
         AddTimer(10, () =>
         {
@@ -143,7 +143,7 @@ public partial class Frozen_Elsa
         Server.ExecuteCommand($"sv_grenade_trajectory_prac_pipreview 1");
 
         Globals.SiteImage = "https://gifman.net/wp-content/uploads/2019/06/coninga-batendo-palmas.gif";
-        RegisterListener<Listeners.OnTick>(OnTick);
+        // RegisterListener<Listeners.OnTick>(OnTick); (remover - já registrado no Load)
         shouldShowImage = true;
         AddTimer(7, () =>
         {
@@ -166,7 +166,7 @@ public partial class Frozen_Elsa
         Server.ExecuteCommand($"sv_grenade_trajectory_prac_pipreview 1");
 
         Globals.SiteImage = "https://gifman.net/wp-content/uploads/2019/07/bob-esponja-32.gif";
-        RegisterListener<Listeners.OnTick>(OnTick);
+        // RegisterListener<Listeners.OnTick>(OnTick); (remover - já registrado no Load)
         shouldShowImage = true;
         AddTimer(7, () =>
         {
@@ -189,7 +189,7 @@ public partial class Frozen_Elsa
         Server.ExecuteCommand($"sv_grenade_trajectory_prac_pipreview 1");
 
         Globals.SiteImage = "https://gifman.net/wp-content/uploads/2019/07/lula-molusco-02.gif";
-        RegisterListener<Listeners.OnTick>(OnTick);
+        // RegisterListener<Listeners.OnTick>(OnTick); (remover - já registrado no Load)
         shouldShowImage = true;
         AddTimer(7, () =>
         {
@@ -209,7 +209,7 @@ public partial class Frozen_Elsa
         player?.ExecuteClientCommand($"play sounds/hesmokerds_sounds/beyblade.vsnd_c");
 
         Globals.SiteImage = "https://gifdb.com/images/thumbnail/counter-strike-global-offensive-bloody-darryl-dance-0emz8qnam2uswxfn.gif";
-        RegisterListener<Listeners.OnTick>(OnTick);
+        // RegisterListener<Listeners.OnTick>(OnTick); (remover - já registrado no Load)
         shouldShowImage = true;
         AddTimer(7, () =>
         {
@@ -231,7 +231,7 @@ public partial class Frozen_Elsa
         player?.ExecuteClientCommand($"play sounds/hesmokerds_sounds/vou.vsnd_c");
 
         Globals.SiteImage = "https://images6.fanpop.com/image/photos/38100000/Avril-Lavigne-avril-lavigne-38198066-245-245.gif";
-        RegisterListener<Listeners.OnTick>(OnTick);
+        // RegisterListener<Listeners.OnTick>(OnTick); (remover - já registrado no Load)
         shouldShowImage = true;
         AddTimer(7, () =>
         {
@@ -250,7 +250,7 @@ public partial class Frozen_Elsa
         player?.ExecuteClientCommand($"play sounds/hesmokerds_sounds/Cartman.vsnd");
 
         Globals.SiteImage = "https://media.tenor.com/RGHN_Qyr994AAAAd/upset-eric-cartman.gif";
-        RegisterListener<Listeners.OnTick>(OnTick);
+        // RegisterListener<Listeners.OnTick>(OnTick); (remover - já registrado no Load)
         shouldShowImage = true;
         AddTimer(7, () =>
         {
@@ -270,7 +270,7 @@ public partial class Frozen_Elsa
         player?.ExecuteClientCommand($"play sounds/hesmokerds_sounds/cthulhu.vsnd_c");
 
         Globals.SiteImage = "https://www.tribute.ca/news/wp-content/uploads/2016/11/The-Little-Mermaid.jpg";
-        RegisterListener<Listeners.OnTick>(OnTick);
+        // RegisterListener<Listeners.OnTick>(OnTick); (remover - já registrado no Load)
         shouldShowImage = true;
         AddTimer(7, () =>
         {

@@ -1,0 +1,4 @@
+C:\Users\amaur\Documents\Frozen_Elsa-main\bin\BombsiteAnnouncer\lang\en.json
+C:\Users\amaur\Documents\Frozen_Elsa-main\bin\BombsiteAnnouncer\lang\pt.json
+C:\Users\amaur\Documents\Frozen_Elsa-main\bin\BombsiteAnnouncer\Frozen_Elsa.dll
+C:\Users\amaur\Documents\Frozen_Elsa-main\bin\BombsiteAnnouncer\Newtonsoft.Json.dll
